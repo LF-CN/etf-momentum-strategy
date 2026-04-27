@@ -1,0 +1,59 @@
+{
+  "name": "stage8_trigger_deviation_fine_scan_recent3y",
+  "mode": "parameter_grid_scan",
+  "start_date": "2023-01-01",
+  "end_date": "2026-04-14",
+  "base_params": {
+    "initial_capital": 52000,
+    "trigger_deviation": 0.25,
+    "signal_weight": 0.2,
+    "stop_loss_threshold": -0.18,
+    "lookback_period": 30,
+    "cooldown_days": 20,
+    "top_n": 3,
+    "transaction_cost": 0.0002,
+    "factor_weights": {
+      "momentum_20d": 400,
+      "momentum_60d": 150,
+      "momentum_strength": 200,
+      "volatility_reward": 50,
+      "r_squared": 30
+    },
+    "style_factors": {
+      "small_cap": 1.0,
+      "growth": 1.0,
+      "mid_cap": 1.0,
+      "large_cap": 1.0,
+      "tech": 1.0,
+      "cyclical": 1.0,
+      "defensive": 1.0,
+      "gov_bond": 1.0,
+      "convertible": 1.0,
+      "commodity": 1.0,
+      "a_share": 1.0,
+      "us_tech": 1.0
+    }
+  },
+  "base_constraints": {
+    "max_single_weight": 0.325,
+    "min_holding": 1000
+  },
+  "param_grid": {
+    "trigger_deviation": [0.15, 0.20, 0.25]
+  },
+  "validation": {
+    "train_test": true,
+    "walk_forward": true,
+    "train_ratio": 0.7,
+    "train_days": 504,
+    "test_days": 126,
+    "step_days": 126,
+    "train_top_k": 3,
+    "wf_top_k": 2
+  },
+  "notes": [
+    "Stage8 精扫：近3年 trigger_deviation 只测 0.15/0.20/0.25",
+    "固定当前正式低回撤基线，其余参数不动",
+    "缩短 walk-forward 窗口以适配近3年样本长度"
+  ]
+}

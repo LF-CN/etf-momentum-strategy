@@ -1,0 +1,139 @@
+{
+  "name": "stage9_stop_loss_upgrade_atr_trailing_momentum",
+  "mode": "parameter_grid_scan",
+  "start_date": "2016-01-01",
+  "end_date": "2026-04-27",
+  "base_params": {
+    "initial_capital": 52000,
+    "trigger_deviation": 0.24,
+    "signal_weight": 0.2,
+    "stop_loss_threshold": -0.18,
+    "lookback_period": 30,
+    "cooldown_days": 20,
+    "top_n": 3,
+    "transaction_cost": 0.0002,
+    "factor_weights": {
+      "momentum_20d": 425,
+      "momentum_60d": 175,
+      "momentum_strength": 200,
+      "volatility_reward": 75,
+      "r_squared": 30
+    },
+    "style_factors": {
+      "small_cap": 1.0, "growth": 1.0, "mid_cap": 1.0, "large_cap": 1.0,
+      "tech": 1.0, "cyclical": 1.0, "defensive": 1.0, "gov_bond": 1.0,
+      "convertible": 1.0, "commodity": 1.0, "a_share": 1.0, "us_tech": 1.0
+    }
+  },
+  "base_constraints": {
+    "max_single_weight": 0.325,
+    "min_holding": 1000
+  },
+  "stop_loss_upgrade": {
+    "enabled": true,
+    "modes": [
+      {
+        "label": "baseline_hard_only",
+        "description": "仅硬止损-18%（当前基线，对照用）",
+        "atr_stop": false,
+        "trailing_stop": false,
+        "momentum_decay_stop": false
+      },
+      {
+        "label": "atr_only_2x",
+        "description": "ATR自适应止损（2倍ATR），替代固定比例",
+        "atr_stop": { "atr_period": 20, "atr_multiplier": 2.0 },
+        "trailing_stop": false,
+        "momentum_decay_stop": false
+      },
+      {
+        "label": "atr_only_3x",
+        "description": "ATR自适应止损（3倍ATR），给更大呼吸空间",
+        "atr_stop": { "atr_period": 20, "atr_multiplier": 3.0 },
+        "trailing_stop": false,
+        "momentum_decay_stop": false
+      },
+      {
+        "label": "trailing_only_8pct",
+        "description": "从最高点回撤8%止损，不用成本价基准",
+        "atr_stop": false,
+        "trailing_stop": { "trail_pct": 0.08 },
+        "momentum_decay_stop": false
+      },
+      {
+        "label": "trailing_only_12pct",
+        "description": "从最高点回撤12%止损，避免被正常回调震出",
+        "atr_stop": false,
+        "trailing_stop": { "trail_pct": 0.12 },
+        "momentum_decay_stop": false
+      },
+      {
+        "label": "momentum_decay_only_20",
+        "description": "动量得分跌破20即减仓（当前空仓的阈值约0-10）",
+        "atr_stop": false,
+        "trailing_stop": false,
+        "momentum_decay_stop": { "score_threshold": 20, "action": "reduce_to_target" }
+      },
+      {
+        "label": "momentum_decay_only_30",
+        "description": "动量得分跌破30即减仓",
+        "atr_stop": false,
+        "trailing_stop": false,
+        "momentum_decay_stop": { "score_threshold": 30, "action": "reduce_to_target" }
+      },
+      {
+        "label": "atr2x_trailing8pct",
+        "description": "ATR(2x) + Trailing(8%) 组合",
+        "atr_stop": { "atr_period": 20, "atr_multiplier": 2.0 },
+        "trailing_stop": { "trail_pct": 0.08 },
+        "momentum_decay_stop": false
+      },
+      {
+        "label": "atr2x_momentum30",
+        "description": "ATR(2x) + 动量衰减(30) 组合",
+        "atr_stop": { "atr_period": 20, "atr_multiplier": 2.0 },
+        "trailing_stop": false,
+        "momentum_decay_stop": { "score_threshold": 30, "action": "reduce_to_target" }
+      },
+      {
+        "label": "trailing8pct_momentum30",
+        "description": "Trailing(8%) + 动量衰减(30) 组合",
+        "atr_stop": false,
+        "trailing_stop": { "trail_pct": 0.08 },
+        "momentum_decay_stop": { "score_threshold": 30, "action": "reduce_to_target" }
+      },
+      {
+        "label": "full_atr2x_trailing8pct_momentum30",
+        "description": "三合一：ATR(2x) + Trailing(8%) + 动量衰减(30)",
+        "atr_stop": { "atr_period": 20, "atr_multiplier": 2.0 },
+        "trailing_stop": { "trail_pct": 0.08 },
+        "momentum_decay_stop": { "score_threshold": 30, "action": "reduce_to_target" }
+      },
+      {
+        "label": "full_atr2x_trailing12pct_momentum20",
+        "description": "三合一宽松版：ATR(2x) + Trailing(12%) + 动量衰减(20)",
+        "atr_stop": { "atr_period": 20, "atr_multiplier": 2.0 },
+        "trailing_stop": { "trail_pct": 0.12 },
+        "momentum_decay_stop": { "score_threshold": 20, "action": "reduce_to_target" }
+      }
+    ]
+  },
+  "validation": {
+    "train_test": true,
+    "walk_forward": true,
+    "train_ratio": 0.7,
+    "train_days": 756,
+    "test_days": 252,
+    "step_days": 252
+  },
+  "notes": [
+    "Stage9 止损策略升级回测",
+    "对照基线：Stage7新基线(年化16.45%/夏普1.197/回撤-12.79%)",
+    "3种止损策略 × 4种组合 = 12个mode逐一回测",
+    "A. ATR自适应止损：用ATR倍数替代固定-18%，高波动ETF给宽止损",
+    "B. Trailing Stop：从最高点回撤X%即止损，锁定已实现利润",
+    "D. 动量衰减止损：动量得分跌破阈值即减仓，不等价格确认",
+    "任一条件触发即执行减仓/清仓，硬止损-18%作为最终兜底保留",
+    "评价标准：夏普>1.197 且 回撤>-12.79% 视为改善"
+  ]
+}

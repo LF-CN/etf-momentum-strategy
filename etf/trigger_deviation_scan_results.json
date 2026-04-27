@@ -1,0 +1,1276 @@
+{
+  "preset_name": "trigger_deviation_scan_on_0325",
+  "start_date": "2016-01-01",
+  "end_date": "2026-04-14",
+  "base_params": {
+    "initial_capital": 52000,
+    "trigger_deviation": 0.2,
+    "signal_weight": 0.2,
+    "stop_loss_threshold": -0.18,
+    "lookback_period": 30,
+    "cooldown_days": 20,
+    "top_n": 3,
+    "transaction_cost": 0.0002
+  },
+  "base_constraints": {
+    "max_single_weight": 0.325,
+    "min_holding": 1000
+  },
+  "param_grid": {
+    "trigger_deviation": [
+      0.15,
+      0.2,
+      0.25
+    ]
+  },
+  "full_sample_top10": [
+    {
+      "total_return": 326.91292361538535,
+      "annual_return": 15.995293143298838,
+      "max_drawdown": -16.54112104548034,
+      "annual_volatility": 12.113297049783348,
+      "sharpe_ratio": 1.0728122236159696,
+      "calmar_ratio": -0.9670017587876462,
+      "rebalance_count": 158,
+      "backtest_days": 2465,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2016-01-01",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "initial_capital": 52000,
+        "trigger_deviation": 0.2,
+        "signal_weight": 0.2,
+        "stop_loss_threshold": -0.18,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3,
+        "transaction_cost": 0.0002
+      },
+      "constraints": {
+        "max_single_weight": 0.325,
+        "min_holding": 1000
+      },
+      "rank": 1
+    },
+    {
+      "total_return": 310.41418330769295,
+      "annual_return": 15.528858090325826,
+      "max_drawdown": -17.24313506718616,
+      "annual_volatility": 11.965087637736369,
+      "sharpe_ratio": 1.0471179543066107,
+      "calmar_ratio": -0.9005820594583976,
+      "rebalance_count": 166,
+      "backtest_days": 2465,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2016-01-01",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "initial_capital": 52000,
+        "trigger_deviation": 0.15,
+        "signal_weight": 0.2,
+        "stop_loss_threshold": -0.18,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3,
+        "transaction_cost": 0.0002
+      },
+      "constraints": {
+        "max_single_weight": 0.325,
+        "min_holding": 1000
+      },
+      "rank": 2
+    },
+    {
+      "total_return": 302.4116461923081,
+      "annual_return": 15.2965248929823,
+      "max_drawdown": -16.522345364274095,
+      "annual_volatility": 12.369502160867043,
+      "sharpe_ratio": 0.994100225948008,
+      "calmar_ratio": -0.9258083253759869,
+      "rebalance_count": 148,
+      "backtest_days": 2465,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2016-01-01",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "initial_capital": 52000,
+        "trigger_deviation": 0.25,
+        "signal_weight": 0.2,
+        "stop_loss_threshold": -0.18,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3,
+        "transaction_cost": 0.0002
+      },
+      "constraints": {
+        "max_single_weight": 0.325,
+        "min_holding": 1000
+      },
+      "rank": 3
+    }
+  ],
+  "train_test_validation": {
+    "train_period": {
+      "train_start": "2016-01-04",
+      "train_end": "2023-03-09",
+      "test_start": "2023-03-10",
+      "test_end": "2026-04-14",
+      "train_days": 1746,
+      "test_days": 749
+    },
+    "best_train": {
+      "total_return": 116.70144484615426,
+      "annual_return": 12.026911578584333,
+      "max_drawdown": -16.54112104548034,
+      "annual_volatility": 11.718303006590395,
+      "sharpe_ratio": 0.7703258375813956,
+      "calmar_ratio": -0.7270916853528823,
+      "rebalance_count": 112,
+      "backtest_days": 1716,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2023-03-09",
+      "requested_start_date": "2016-01-04",
+      "requested_end_date": "2023-03-09",
+      "params": {
+        "initial_capital": 52000,
+        "trigger_deviation": 0.2,
+        "signal_weight": 0.2,
+        "stop_loss_threshold": -0.18,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3,
+        "transaction_cost": 0.0002
+      },
+      "constraints": {
+        "max_single_weight": 0.325,
+        "min_holding": 1000
+      },
+      "rank": 1
+    },
+    "test_evaluation": {
+      "total_return": 96.07370407692315,
+      "annual_return": 26.616154604755437,
+      "max_drawdown": -9.891239079127716,
+      "annual_volatility": 13.095673298697516,
+      "sharpe_ratio": 1.803355510335179,
+      "calmar_ratio": -2.690881738054465,
+      "rebalance_count": 45,
+      "backtest_days": 719,
+      "data_start_date": "2023-03-10",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2023-03-10",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "initial_capital": 52000,
+        "trigger_deviation": 0.2,
+        "signal_weight": 0.2,
+        "stop_loss_threshold": -0.18,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3,
+        "transaction_cost": 0.0002
+      },
+      "constraints": {
+        "max_single_weight": 0.325,
+        "min_holding": 1000
+      }
+    },
+    "train_top_results": [
+      {
+        "total_return": 116.70144484615426,
+        "annual_return": 12.026911578584333,
+        "max_drawdown": -16.54112104548034,
+        "annual_volatility": 11.718303006590395,
+        "sharpe_ratio": 0.7703258375813956,
+        "calmar_ratio": -0.7270916853528823,
+        "rebalance_count": 112,
+        "backtest_days": 1716,
+        "data_start_date": "2016-01-04",
+        "data_end_date": "2023-03-09",
+        "requested_start_date": "2016-01-04",
+        "requested_end_date": "2023-03-09",
+        "params": {
+          "initial_capital": 52000,
+          "trigger_deviation": 0.2,
+          "signal_weight": 0.2,
+          "stop_loss_threshold": -0.18,
+          "lookback_period": 30,
+          "cooldown_days": 20,
+          "top_n": 3,
+          "transaction_cost": 0.0002
+        },
+        "constraints": {
+          "max_single_weight": 0.325,
+          "min_holding": 1000
+        },
+        "rank": 1
+      },
+      {
+        "total_return": 92.2872270000003,
+        "annual_return": 10.077615964640518,
+        "max_drawdown": -17.24313506718616,
+        "annual_volatility": 11.950091780269014,
+        "sharpe_ratio": 0.5922645695764849,
+        "calmar_ratio": -0.584442209921461,
+        "rebalance_count": 116,
+        "backtest_days": 1716,
+        "data_start_date": "2016-01-04",
+        "data_end_date": "2023-03-09",
+        "requested_start_date": "2016-01-04",
+        "requested_end_date": "2023-03-09",
+        "params": {
+          "initial_capital": 52000,
+          "trigger_deviation": 0.15,
+          "signal_weight": 0.2,
+          "stop_loss_threshold": -0.18,
+          "lookback_period": 30,
+          "cooldown_days": 20,
+          "top_n": 3,
+          "transaction_cost": 0.0002
+        },
+        "constraints": {
+          "max_single_weight": 0.325,
+          "min_holding": 1000
+        },
+        "rank": 2
+      },
+      {
+        "total_return": 91.95905773076953,
+        "annual_return": 10.050007253179682,
+        "max_drawdown": -16.522345364274095,
+        "annual_volatility": 12.047083350138019,
+        "sharpe_ratio": 0.5852044887776853,
+        "calmar_ratio": -0.6082675934683337,
+        "rebalance_count": 106,
+        "backtest_days": 1716,
+        "data_start_date": "2016-01-04",
+        "data_end_date": "2023-03-09",
+        "requested_start_date": "2016-01-04",
+        "requested_end_date": "2023-03-09",
+        "params": {
+          "initial_capital": 52000,
+          "trigger_deviation": 0.25,
+          "signal_weight": 0.2,
+          "stop_loss_threshold": -0.18,
+          "lookback_period": 30,
+          "cooldown_days": 20,
+          "top_n": 3,
+          "transaction_cost": 0.0002
+        },
+        "constraints": {
+          "max_single_weight": 0.325,
+          "min_holding": 1000
+        },
+        "rank": 3
+      }
+    ]
+  },
+  "walk_forward_validation": {
+    "summary": {
+      "window_count": 6,
+      "avg_test_sharpe": 0.9372,
+      "avg_test_annual_return": 14.476,
+      "avg_test_max_drawdown": -8.0064,
+      "best_params_frequency": [
+        {
+          "params": {
+            "cooldown_days": 20,
+            "initial_capital": 52000,
+            "lookback_period": 30,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "trigger_deviation": 0.2
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "count": 3
+        },
+        {
+          "params": {
+            "cooldown_days": 20,
+            "initial_capital": 52000,
+            "lookback_period": 30,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "trigger_deviation": 0.15
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "count": 2
+        },
+        {
+          "params": {
+            "cooldown_days": 20,
+            "initial_capital": 52000,
+            "lookback_period": 30,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "trigger_deviation": 0.25
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "count": 1
+        }
+      ]
+    },
+    "windows": [
+      {
+        "window_index": 1,
+        "train_period": {
+          "train_start": "2016-01-04",
+          "train_end": "2019-02-12",
+          "test_start": "2019-02-13",
+          "test_end": "2020-02-25",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 29.96606973076932,
+          "annual_return": 9.53042187783415,
+          "max_drawdown": -9.334372473783413,
+          "annual_volatility": 9.113545596598826,
+          "sharpe_ratio": 0.7165621555974112,
+          "calmar_ratio": -1.02100295489615,
+          "rebalance_count": 48,
+          "backtest_days": 726,
+          "data_start_date": "2016-01-04",
+          "data_end_date": "2019-02-12",
+          "requested_start_date": "2016-01-04",
+          "requested_end_date": "2019-02-12",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.2,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 18.756964923076946,
+          "annual_return": 21.548094818423348,
+          "max_drawdown": -6.967570965852507,
+          "annual_volatility": 11.851902943499505,
+          "sharpe_ratio": 1.5649887538605392,
+          "calmar_ratio": -3.092626529967013,
+          "rebalance_count": 16,
+          "backtest_days": 222,
+          "data_start_date": "2019-02-13",
+          "data_end_date": "2020-02-25",
+          "requested_start_date": "2019-02-13",
+          "requested_end_date": "2020-02-25",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.2,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 29.96606973076932,
+            "annual_return": 9.53042187783415,
+            "max_drawdown": -9.334372473783413,
+            "annual_volatility": 9.113545596598826,
+            "sharpe_ratio": 0.7165621555974112,
+            "calmar_ratio": -1.02100295489615,
+            "rebalance_count": 48,
+            "backtest_days": 726,
+            "data_start_date": "2016-01-04",
+            "data_end_date": "2019-02-12",
+            "requested_start_date": "2016-01-04",
+            "requested_end_date": "2019-02-12",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.2,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 29.486220076923164,
+            "annual_return": 9.389863811863354,
+            "max_drawdown": -9.334372473783413,
+            "annual_volatility": 9.105281579804775,
+            "sharpe_ratio": 0.7017755305926912,
+            "calmar_ratio": -1.0059448386311767,
+            "rebalance_count": 50,
+            "backtest_days": 726,
+            "data_start_date": "2016-01-04",
+            "data_end_date": "2019-02-12",
+            "requested_start_date": "2016-01-04",
+            "requested_end_date": "2019-02-12",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.15,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 2
+          },
+          {
+            "total_return": 21.98965465384626,
+            "annual_return": 7.142889864602875,
+            "max_drawdown": -9.364215413143727,
+            "annual_volatility": 9.297753471094646,
+            "sharpe_ratio": 0.4455796636770928,
+            "calmar_ratio": -0.7627857273100561,
+            "rebalance_count": 45,
+            "backtest_days": 726,
+            "data_start_date": "2016-01-04",
+            "data_end_date": "2019-02-12",
+            "requested_start_date": "2016-01-04",
+            "requested_end_date": "2019-02-12",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 3
+          }
+        ]
+      },
+      {
+        "window_index": 2,
+        "train_period": {
+          "train_start": "2017-01-13",
+          "train_end": "2020-02-25",
+          "test_start": "2020-02-26",
+          "test_end": "2021-03-09",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 56.29640930769237,
+          "annual_return": 16.767273815171514,
+          "max_drawdown": -9.357682826598577,
+          "annual_volatility": 10.485667068520026,
+          "sharpe_ratio": 1.312961180743903,
+          "calmar_ratio": -1.7918189925727848,
+          "rebalance_count": 47,
+          "backtest_days": 726,
+          "data_start_date": "2017-01-13",
+          "data_end_date": "2020-02-25",
+          "requested_start_date": "2017-01-13",
+          "requested_end_date": "2020-02-25",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.15,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 7.4153506538461755,
+          "annual_return": 8.458727815472189,
+          "max_drawdown": -13.94022464717073,
+          "annual_volatility": 17.81724362455912,
+          "sharpe_ratio": 0.30637330501267496,
+          "calmar_ratio": -0.606785617130564,
+          "rebalance_count": 16,
+          "backtest_days": 222,
+          "data_start_date": "2020-02-26",
+          "data_end_date": "2021-03-09",
+          "requested_start_date": "2020-02-26",
+          "requested_end_date": "2021-03-09",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.15,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 56.29640930769237,
+            "annual_return": 16.767273815171514,
+            "max_drawdown": -9.357682826598577,
+            "annual_volatility": 10.485667068520026,
+            "sharpe_ratio": 1.312961180743903,
+            "calmar_ratio": -1.7918189925727848,
+            "rebalance_count": 47,
+            "backtest_days": 726,
+            "data_start_date": "2017-01-13",
+            "data_end_date": "2020-02-25",
+            "requested_start_date": "2017-01-13",
+            "requested_end_date": "2020-02-25",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.15,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 46.68969815384622,
+            "annual_return": 14.224310196905709,
+            "max_drawdown": -9.962196969481795,
+            "annual_volatility": 10.901591424724366,
+            "sharpe_ratio": 1.0296029047143915,
+            "calmar_ratio": -1.427828644673507,
+            "rebalance_count": 44,
+            "backtest_days": 726,
+            "data_start_date": "2017-01-13",
+            "data_end_date": "2020-02-25",
+            "requested_start_date": "2017-01-13",
+            "requested_end_date": "2020-02-25",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.2,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 2
+          },
+          {
+            "total_return": 46.14765338461553,
+            "annual_return": 14.077626232558593,
+            "max_drawdown": -9.977750030397104,
+            "annual_volatility": 11.392324854348843,
+            "sharpe_ratio": 0.9723762598228475,
+            "calmar_ratio": -1.4109018756404264,
+            "rebalance_count": 44,
+            "backtest_days": 726,
+            "data_start_date": "2017-01-13",
+            "data_end_date": "2020-02-25",
+            "requested_start_date": "2017-01-13",
+            "requested_end_date": "2020-02-25",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 3
+          }
+        ]
+      },
+      {
+        "window_index": 3,
+        "train_period": {
+          "train_start": "2018-01-24",
+          "train_end": "2021-03-09",
+          "test_start": "2021-03-10",
+          "test_end": "2022-03-22",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 53.94026365384632,
+          "annual_return": 16.15324604226689,
+          "max_drawdown": -16.509119057475484,
+          "annual_volatility": 14.599419497092578,
+          "sharpe_ratio": 0.9009430850922745,
+          "calmar_ratio": -0.9784438519118044,
+          "rebalance_count": 45,
+          "backtest_days": 726,
+          "data_start_date": "2018-01-24",
+          "data_end_date": "2021-03-09",
+          "requested_start_date": "2018-01-24",
+          "requested_end_date": "2021-03-09",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.15,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 2.0067600769231086,
+          "annual_return": 2.2810148747355763,
+          "max_drawdown": -7.8260838605080805,
+          "annual_volatility": 9.246247661635923,
+          "sharpe_ratio": -0.0777596654962641,
+          "calmar_ratio": -0.2914631270750898,
+          "rebalance_count": 16,
+          "backtest_days": 222,
+          "data_start_date": "2021-03-10",
+          "data_end_date": "2022-03-22",
+          "requested_start_date": "2021-03-10",
+          "requested_end_date": "2022-03-22",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.15,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 53.94026365384632,
+            "annual_return": 16.15324604226689,
+            "max_drawdown": -16.509119057475484,
+            "annual_volatility": 14.599419497092578,
+            "sharpe_ratio": 0.9009430850922745,
+            "calmar_ratio": -0.9784438519118044,
+            "rebalance_count": 45,
+            "backtest_days": 726,
+            "data_start_date": "2018-01-24",
+            "data_end_date": "2021-03-09",
+            "requested_start_date": "2018-01-24",
+            "requested_end_date": "2021-03-09",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.15,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 53.276332461538644,
+            "annual_return": 15.979114036932419,
+            "max_drawdown": -16.509119057475484,
+            "annual_volatility": 14.57768995918649,
+            "sharpe_ratio": 0.890340930097317,
+            "calmar_ratio": -0.9678962264008222,
+            "rebalance_count": 45,
+            "backtest_days": 726,
+            "data_start_date": "2018-01-24",
+            "data_end_date": "2021-03-09",
+            "requested_start_date": "2018-01-24",
+            "requested_end_date": "2021-03-09",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.2,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 2
+          },
+          {
+            "total_return": 50.91808534615403,
+            "annual_return": 15.356595453212085,
+            "max_drawdown": -16.640199339135034,
+            "annual_volatility": 15.165362614899285,
+            "sharpe_ratio": 0.8147906362009627,
+            "calmar_ratio": -0.922861267478682,
+            "rebalance_count": 45,
+            "backtest_days": 726,
+            "data_start_date": "2018-01-24",
+            "data_end_date": "2021-03-09",
+            "requested_start_date": "2018-01-24",
+            "requested_end_date": "2021-03-09",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 3
+          }
+        ]
+      },
+      {
+        "window_index": 4,
+        "train_period": {
+          "train_start": "2019-02-13",
+          "train_end": "2022-03-22",
+          "test_start": "2022-03-23",
+          "test_end": "2023-04-04",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 37.10071596153859,
+          "annual_return": 11.575157115932221,
+          "max_drawdown": -16.571211413075478,
+          "annual_volatility": 14.465474529890491,
+          "sharpe_ratio": 0.5928016463070803,
+          "calmar_ratio": -0.6985100139872014,
+          "rebalance_count": 47,
+          "backtest_days": 726,
+          "data_start_date": "2019-02-13",
+          "data_end_date": "2022-03-22",
+          "requested_start_date": "2019-02-13",
+          "requested_end_date": "2022-03-22",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 6.8508036153846374,
+          "annual_return": 7.811896007790842,
+          "max_drawdown": -5.840018287087105,
+          "annual_volatility": 8.029634253004161,
+          "sharpe_ratio": 0.5992671466935803,
+          "calmar_ratio": -1.3376492373429318,
+          "rebalance_count": 14,
+          "backtest_days": 222,
+          "data_start_date": "2022-03-23",
+          "data_end_date": "2023-04-04",
+          "requested_start_date": "2022-03-23",
+          "requested_end_date": "2023-04-04",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 37.10071596153859,
+            "annual_return": 11.575157115932221,
+            "max_drawdown": -16.571211413075478,
+            "annual_volatility": 14.465474529890491,
+            "sharpe_ratio": 0.5928016463070803,
+            "calmar_ratio": -0.6985100139872014,
+            "rebalance_count": 47,
+            "backtest_days": 726,
+            "data_start_date": "2019-02-13",
+            "data_end_date": "2022-03-22",
+            "requested_start_date": "2019-02-13",
+            "requested_end_date": "2022-03-22",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 32.712287230769356,
+            "annual_return": 10.322315602573195,
+            "max_drawdown": -16.57170318059505,
+            "annual_volatility": 14.382055562531642,
+            "sharpe_ratio": 0.5091285853219346,
+            "calmar_ratio": -0.6228880332988528,
+            "rebalance_count": 50,
+            "backtest_days": 726,
+            "data_start_date": "2019-02-13",
+            "data_end_date": "2022-03-22",
+            "requested_start_date": "2019-02-13",
+            "requested_end_date": "2022-03-22",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.2,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 2
+          },
+          {
+            "total_return": 26.107593500000135,
+            "annual_return": 8.38471328390671,
+            "max_drawdown": -16.57170318059505,
+            "annual_volatility": 13.791930653480053,
+            "sharpe_ratio": 0.39042490998517376,
+            "calmar_ratio": -0.5059656929967794,
+            "rebalance_count": 50,
+            "backtest_days": 726,
+            "data_start_date": "2019-02-13",
+            "data_end_date": "2022-03-22",
+            "requested_start_date": "2019-02-13",
+            "requested_end_date": "2022-03-22",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.15,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 3
+          }
+        ]
+      },
+      {
+        "window_index": 5,
+        "train_period": {
+          "train_start": "2020-02-26",
+          "train_end": "2023-04-04",
+          "test_start": "2023-04-06",
+          "test_end": "2024-04-19",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 24.26514034615397,
+          "annual_return": 7.836667689243648,
+          "max_drawdown": -13.394266535512363,
+          "annual_volatility": 12.60679324461301,
+          "sharpe_ratio": 0.38365566844767585,
+          "calmar_ratio": -0.5850762838313099,
+          "rebalance_count": 50,
+          "backtest_days": 726,
+          "data_start_date": "2020-02-26",
+          "data_end_date": "2023-04-04",
+          "requested_start_date": "2020-02-26",
+          "requested_end_date": "2023-04-04",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.2,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 9.905010576923079,
+          "annual_return": 11.316718874624021,
+          "max_drawdown": -6.980085602204033,
+          "annual_volatility": 8.076972190749526,
+          "sharpe_ratio": 1.0296827422717976,
+          "calmar_ratio": -1.6212865456908796,
+          "rebalance_count": 16,
+          "backtest_days": 222,
+          "data_start_date": "2023-04-06",
+          "data_end_date": "2024-04-19",
+          "requested_start_date": "2023-04-06",
+          "requested_end_date": "2024-04-19",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.2,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 24.26514034615397,
+            "annual_return": 7.836667689243648,
+            "max_drawdown": -13.394266535512363,
+            "annual_volatility": 12.60679324461301,
+            "sharpe_ratio": 0.38365566844767585,
+            "calmar_ratio": -0.5850762838313099,
+            "rebalance_count": 50,
+            "backtest_days": 726,
+            "data_start_date": "2020-02-26",
+            "data_end_date": "2023-04-04",
+            "requested_start_date": "2020-02-26",
+            "requested_end_date": "2023-04-04",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.2,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 21.69033711538466,
+            "annual_return": 7.0556910949943985,
+            "max_drawdown": -15.113308549106986,
+            "annual_volatility": 13.022497452088121,
+            "sharpe_ratio": 0.31143727306654834,
+            "calmar_ratio": -0.4668528450979918,
+            "rebalance_count": 47,
+            "backtest_days": 726,
+            "data_start_date": "2020-02-26",
+            "data_end_date": "2023-04-04",
+            "requested_start_date": "2020-02-26",
+            "requested_end_date": "2023-04-04",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 2
+          },
+          {
+            "total_return": -0.5023376923076195,
+            "annual_return": -0.17465187833181073,
+            "max_drawdown": -25.9116415526836,
+            "annual_volatility": 12.956002342545753,
+            "sharpe_ratio": -0.2450332899297714,
+            "calmar_ratio": 0.006740286136511582,
+            "rebalance_count": 51,
+            "backtest_days": 726,
+            "data_start_date": "2020-02-26",
+            "data_end_date": "2023-04-04",
+            "requested_start_date": "2020-02-26",
+            "requested_end_date": "2023-04-04",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.15,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 3
+          }
+        ]
+      },
+      {
+        "window_index": 6,
+        "train_period": {
+          "train_start": "2021-03-10",
+          "train_end": "2024-04-19",
+          "test_start": "2024-04-22",
+          "test_end": "2025-05-08",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 19.692054961538542,
+          "annual_return": 6.438085518922754,
+          "max_drawdown": -8.822821944215926,
+          "annual_volatility": 8.717876928493244,
+          "sharpe_ratio": 0.39437188057631556,
+          "calmar_ratio": -0.7297081998966827,
+          "rebalance_count": 48,
+          "backtest_days": 726,
+          "data_start_date": "2021-03-10",
+          "data_end_date": "2024-04-19",
+          "requested_start_date": "2021-03-10",
+          "requested_end_date": "2024-04-19",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.2,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 30.635794192307706,
+          "annual_return": 35.439789335617355,
+          "max_drawdown": -6.484480737819124,
+          "annual_volatility": 14.740800126072816,
+          "sharpe_ratio": 2.2006803605076644,
+          "calmar_ratio": -5.465324174520804,
+          "rebalance_count": 12,
+          "backtest_days": 222,
+          "data_start_date": "2024-04-22",
+          "data_end_date": "2025-05-08",
+          "requested_start_date": "2024-04-22",
+          "requested_end_date": "2025-05-08",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.2,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.18,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 19.692054961538542,
+            "annual_return": 6.438085518922754,
+            "max_drawdown": -8.822821944215926,
+            "annual_volatility": 8.717876928493244,
+            "sharpe_ratio": 0.39437188057631556,
+            "calmar_ratio": -0.7297081998966827,
+            "rebalance_count": 48,
+            "backtest_days": 726,
+            "data_start_date": "2021-03-10",
+            "data_end_date": "2024-04-19",
+            "requested_start_date": "2021-03-10",
+            "requested_end_date": "2024-04-19",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.2,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 17.226637500000088,
+            "annual_return": 5.671906989894282,
+            "max_drawdown": -13.067403121647981,
+            "annual_volatility": 8.499042289374417,
+            "sharpe_ratio": 0.3143774202929576,
+            "calmar_ratio": -0.4340500508856251,
+            "rebalance_count": 47,
+            "backtest_days": 726,
+            "data_start_date": "2021-03-10",
+            "data_end_date": "2024-04-19",
+            "requested_start_date": "2021-03-10",
+            "requested_end_date": "2024-04-19",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 2
+          },
+          {
+            "total_return": 7.4404430769231755,
+            "annual_return": 2.522354606867805,
+            "max_drawdown": -16.71564822745615,
+            "annual_volatility": 9.200748333163679,
+            "sharpe_ratio": -0.051913754820414326,
+            "calmar_ratio": -0.15089780381503434,
+            "rebalance_count": 51,
+            "backtest_days": 726,
+            "data_start_date": "2021-03-10",
+            "data_end_date": "2024-04-19",
+            "requested_start_date": "2021-03-10",
+            "requested_end_date": "2024-04-19",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.15,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.18,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 3
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1279 @@
+{
+  "preset_name": "stage7c_msw0325_cd20_stoploss015_lowdd",
+  "mode": "parameter_grid_scan",
+  "start_date": "2016-01-01",
+  "end_date": "2026-04-14",
+  "base_params": {
+    "initial_capital": 52000,
+    "trigger_deviation": 0.25,
+    "signal_weight": 0.2,
+    "stop_loss_threshold": -0.15,
+    "lookback_period": 30,
+    "cooldown_days": 20,
+    "top_n": 3,
+    "transaction_cost": 0.0002,
+    "factor_weights": {
+      "momentum_20d": 400,
+      "momentum_60d": 150,
+      "momentum_strength": 200,
+      "volatility_reward": 50,
+      "r_squared": 30
+    },
+    "style_factors": {
+      "small_cap": 1.0,
+      "growth": 1.0,
+      "mid_cap": 1.0,
+      "large_cap": 1.0,
+      "tech": 1.0,
+      "cyclical": 1.0,
+      "defensive": 1.0,
+      "gov_bond": 1.0,
+      "convertible": 1.0,
+      "commodity": 1.0,
+      "a_share": 1.0,
+      "us_tech": 1.0
+    }
+  },
+  "base_constraints": {
+    "max_single_weight": 0.325,
+    "min_holding": 1000
+  },
+  "param_grid": {},
+  "constraint_grid": {},
+  "full_sample_top10": [
+    {
+      "total_return": 287.61429280769255,
+      "annual_return": 14.855775325222421,
+      "max_drawdown": -14.071355177516672,
+      "annual_volatility": 11.548967978607834,
+      "sharpe_ratio": 1.026565780352226,
+      "calmar_ratio": -1.0557458850132004,
+      "rebalance_count": 114,
+      "backtest_days": 2465,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2016-01-01",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "initial_capital": 52000,
+        "trigger_deviation": 0.25,
+        "signal_weight": 0.2,
+        "stop_loss_threshold": -0.15,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3,
+        "transaction_cost": 0.0002,
+        "factor_weights": {
+          "momentum_20d": 400,
+          "momentum_60d": 150,
+          "momentum_strength": 200,
+          "volatility_reward": 50,
+          "r_squared": 30
+        },
+        "style_factors": {
+          "small_cap": 1.0,
+          "growth": 1.0,
+          "mid_cap": 1.0,
+          "large_cap": 1.0,
+          "tech": 1.0,
+          "cyclical": 1.0,
+          "defensive": 1.0,
+          "gov_bond": 1.0,
+          "convertible": 1.0,
+          "commodity": 1.0,
+          "a_share": 1.0,
+          "us_tech": 1.0
+        }
+      },
+      "constraints": {
+        "max_single_weight": 0.325,
+        "min_holding": 1000
+      },
+      "rank": 1
+    }
+  ],
+  "full_sample_all_count": 1,
+  "train_test_validation": {
+    "train_period": {
+      "train_start": "2016-01-04",
+      "train_end": "2023-03-09",
+      "test_start": "2023-03-10",
+      "test_end": "2026-04-14",
+      "train_days": 1746,
+      "test_days": 749
+    },
+    "best_train": {
+      "total_return": 97.06029519230785,
+      "annual_return": 10.474694472555491,
+      "max_drawdown": -14.071355177516672,
+      "annual_volatility": 11.502704885870758,
+      "sharpe_ratio": 0.6498205897411975,
+      "calmar_ratio": -0.7443984136859855,
+      "rebalance_count": 82,
+      "backtest_days": 1716,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2023-03-09",
+      "requested_start_date": "2016-01-04",
+      "requested_end_date": "2023-03-09",
+      "params": {
+        "initial_capital": 52000,
+        "trigger_deviation": 0.25,
+        "signal_weight": 0.2,
+        "stop_loss_threshold": -0.15,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3,
+        "transaction_cost": 0.0002,
+        "factor_weights": {
+          "momentum_20d": 400,
+          "momentum_60d": 150,
+          "momentum_strength": 200,
+          "volatility_reward": 50,
+          "r_squared": 30
+        },
+        "style_factors": {
+          "small_cap": 1.0,
+          "growth": 1.0,
+          "mid_cap": 1.0,
+          "large_cap": 1.0,
+          "tech": 1.0,
+          "cyclical": 1.0,
+          "defensive": 1.0,
+          "gov_bond": 1.0,
+          "convertible": 1.0,
+          "commodity": 1.0,
+          "a_share": 1.0,
+          "us_tech": 1.0
+        }
+      },
+      "constraints": {
+        "max_single_weight": 0.325,
+        "min_holding": 1000
+      },
+      "rank": 1
+    },
+    "test_evaluation": {
+      "total_return": 95.19438796153847,
+      "annual_return": 26.416848747468926,
+      "max_drawdown": -10.831606773237983,
+      "annual_volatility": 12.109763557148241,
+      "sharpe_ratio": 1.9337164294711808,
+      "calmar_ratio": -2.438867039813329,
+      "rebalance_count": 32,
+      "backtest_days": 719,
+      "data_start_date": "2023-03-10",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2023-03-10",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "initial_capital": 52000,
+        "trigger_deviation": 0.25,
+        "signal_weight": 0.2,
+        "stop_loss_threshold": -0.15,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3,
+        "transaction_cost": 0.0002,
+        "factor_weights": {
+          "momentum_20d": 400,
+          "momentum_60d": 150,
+          "momentum_strength": 200,
+          "volatility_reward": 50,
+          "r_squared": 30
+        },
+        "style_factors": {
+          "small_cap": 1.0,
+          "growth": 1.0,
+          "mid_cap": 1.0,
+          "large_cap": 1.0,
+          "tech": 1.0,
+          "cyclical": 1.0,
+          "defensive": 1.0,
+          "gov_bond": 1.0,
+          "convertible": 1.0,
+          "commodity": 1.0,
+          "a_share": 1.0,
+          "us_tech": 1.0
+        }
+      },
+      "constraints": {
+        "max_single_weight": 0.325,
+        "min_holding": 1000
+      }
+    },
+    "train_top_results": [
+      {
+        "total_return": 97.06029519230785,
+        "annual_return": 10.474694472555491,
+        "max_drawdown": -14.071355177516672,
+        "annual_volatility": 11.502704885870758,
+        "sharpe_ratio": 0.6498205897411975,
+        "calmar_ratio": -0.7443984136859855,
+        "rebalance_count": 82,
+        "backtest_days": 1716,
+        "data_start_date": "2016-01-04",
+        "data_end_date": "2023-03-09",
+        "requested_start_date": "2016-01-04",
+        "requested_end_date": "2023-03-09",
+        "params": {
+          "initial_capital": 52000,
+          "trigger_deviation": 0.25,
+          "signal_weight": 0.2,
+          "stop_loss_threshold": -0.15,
+          "lookback_period": 30,
+          "cooldown_days": 20,
+          "top_n": 3,
+          "transaction_cost": 0.0002,
+          "factor_weights": {
+            "momentum_20d": 400,
+            "momentum_60d": 150,
+            "momentum_strength": 200,
+            "volatility_reward": 50,
+            "r_squared": 30
+          },
+          "style_factors": {
+            "small_cap": 1.0,
+            "growth": 1.0,
+            "mid_cap": 1.0,
+            "large_cap": 1.0,
+            "tech": 1.0,
+            "cyclical": 1.0,
+            "defensive": 1.0,
+            "gov_bond": 1.0,
+            "convertible": 1.0,
+            "commodity": 1.0,
+            "a_share": 1.0,
+            "us_tech": 1.0
+          }
+        },
+        "constraints": {
+          "max_single_weight": 0.325,
+          "min_holding": 1000
+        },
+        "rank": 1
+      }
+    ]
+  },
+  "walk_forward_validation": {
+    "summary": {
+      "window_count": 6,
+      "avg_test_sharpe": 0.9369,
+      "avg_test_annual_return": 12.9603,
+      "avg_test_max_drawdown": -7.3862,
+      "best_params_frequency": [
+        {
+          "params": {
+            "cooldown_days": 20,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "r_squared": 30,
+              "volatility_reward": 50
+            },
+            "initial_capital": 52000,
+            "lookback_period": 30,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "style_factors": {
+              "a_share": 1.0,
+              "commodity": 1.0,
+              "convertible": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "growth": 1.0,
+              "large_cap": 1.0,
+              "mid_cap": 1.0,
+              "small_cap": 1.0,
+              "tech": 1.0,
+              "us_tech": 1.0
+            },
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "trigger_deviation": 0.25
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "count": 6
+        }
+      ]
+    },
+    "windows": [
+      {
+        "window_index": 1,
+        "train_period": {
+          "train_start": "2016-01-04",
+          "train_end": "2019-02-12",
+          "test_start": "2019-02-13",
+          "test_end": "2020-02-25",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 20.202189269230853,
+          "annual_return": 6.604411393883081,
+          "max_drawdown": -9.559819708920651,
+          "annual_volatility": 8.56588610720034,
+          "sharpe_ratio": 0.4207867520971675,
+          "calmar_ratio": -0.6908510406028097,
+          "rebalance_count": 35,
+          "backtest_days": 726,
+          "data_start_date": "2016-01-04",
+          "data_end_date": "2019-02-12",
+          "requested_start_date": "2016-01-04",
+          "requested_end_date": "2019-02-12",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 19.54421096153849,
+          "annual_return": 22.463137236287633,
+          "max_drawdown": -5.395172549454398,
+          "annual_volatility": 12.263508732519494,
+          "sharpe_ratio": 1.587077374085989,
+          "calmar_ratio": -4.163562338438885,
+          "rebalance_count": 10,
+          "backtest_days": 222,
+          "data_start_date": "2019-02-13",
+          "data_end_date": "2020-02-25",
+          "requested_start_date": "2019-02-13",
+          "requested_end_date": "2020-02-25",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 20.202189269230853,
+            "annual_return": 6.604411393883081,
+            "max_drawdown": -9.559819708920651,
+            "annual_volatility": 8.56588610720034,
+            "sharpe_ratio": 0.4207867520971675,
+            "calmar_ratio": -0.6908510406028097,
+            "rebalance_count": 35,
+            "backtest_days": 726,
+            "data_start_date": "2016-01-04",
+            "data_end_date": "2019-02-12",
+            "requested_start_date": "2016-01-04",
+            "requested_end_date": "2019-02-12",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002,
+              "factor_weights": {
+                "momentum_20d": 400,
+                "momentum_60d": 150,
+                "momentum_strength": 200,
+                "volatility_reward": 50,
+                "r_squared": 30
+              },
+              "style_factors": {
+                "small_cap": 1.0,
+                "growth": 1.0,
+                "mid_cap": 1.0,
+                "large_cap": 1.0,
+                "tech": 1.0,
+                "cyclical": 1.0,
+                "defensive": 1.0,
+                "gov_bond": 1.0,
+                "convertible": 1.0,
+                "commodity": 1.0,
+                "a_share": 1.0,
+                "us_tech": 1.0
+              }
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "window_index": 2,
+        "train_period": {
+          "train_start": "2017-01-13",
+          "train_end": "2020-02-25",
+          "test_start": "2020-02-26",
+          "test_end": "2021-03-09",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 53.33990203846155,
+          "annual_return": 15.995807988076848,
+          "max_drawdown": -10.560855580310639,
+          "annual_volatility": 10.392930401225586,
+          "sharpe_ratio": 1.250446937135682,
+          "calmar_ratio": -1.5146318275480428,
+          "rebalance_count": 33,
+          "backtest_days": 726,
+          "data_start_date": "2017-01-13",
+          "data_end_date": "2020-02-25",
+          "requested_start_date": "2017-01-13",
+          "requested_end_date": "2020-02-25",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 5.8407707307692736,
+          "annual_return": 6.655800431629677,
+          "max_drawdown": -13.847231278714094,
+          "annual_volatility": 16.990933516463517,
+          "sharpe_ratio": 0.2151618348743085,
+          "calmar_ratio": -0.48065929554169756,
+          "rebalance_count": 12,
+          "backtest_days": 222,
+          "data_start_date": "2020-02-26",
+          "data_end_date": "2021-03-09",
+          "requested_start_date": "2020-02-26",
+          "requested_end_date": "2021-03-09",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 53.33990203846155,
+            "annual_return": 15.995807988076848,
+            "max_drawdown": -10.560855580310639,
+            "annual_volatility": 10.392930401225586,
+            "sharpe_ratio": 1.250446937135682,
+            "calmar_ratio": -1.5146318275480428,
+            "rebalance_count": 33,
+            "backtest_days": 726,
+            "data_start_date": "2017-01-13",
+            "data_end_date": "2020-02-25",
+            "requested_start_date": "2017-01-13",
+            "requested_end_date": "2020-02-25",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002,
+              "factor_weights": {
+                "momentum_20d": 400,
+                "momentum_60d": 150,
+                "momentum_strength": 200,
+                "volatility_reward": 50,
+                "r_squared": 30
+              },
+              "style_factors": {
+                "small_cap": 1.0,
+                "growth": 1.0,
+                "mid_cap": 1.0,
+                "large_cap": 1.0,
+                "tech": 1.0,
+                "cyclical": 1.0,
+                "defensive": 1.0,
+                "gov_bond": 1.0,
+                "convertible": 1.0,
+                "commodity": 1.0,
+                "a_share": 1.0,
+                "us_tech": 1.0
+              }
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "window_index": 3,
+        "train_period": {
+          "train_start": "2018-01-24",
+          "train_end": "2021-03-09",
+          "test_start": "2021-03-10",
+          "test_end": "2022-03-22",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 66.91218003846163,
+          "annual_return": 19.461303685002008,
+          "max_drawdown": -14.31142534618206,
+          "annual_volatility": 14.414012115577579,
+          "sharpe_ratio": 1.1420348167469534,
+          "calmar_ratio": -1.35984384603549,
+          "rebalance_count": 34,
+          "backtest_days": 726,
+          "data_start_date": "2018-01-24",
+          "data_end_date": "2021-03-09",
+          "requested_start_date": "2018-01-24",
+          "requested_end_date": "2021-03-09",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 0.571532653846174,
+          "annual_return": 0.6490169192933326,
+          "max_drawdown": -8.093276038945872,
+          "annual_volatility": 9.580764422406125,
+          "sharpe_ratio": -0.2453857518100042,
+          "calmar_ratio": -0.0801921145615423,
+          "rebalance_count": 11,
+          "backtest_days": 222,
+          "data_start_date": "2021-03-10",
+          "data_end_date": "2022-03-22",
+          "requested_start_date": "2021-03-10",
+          "requested_end_date": "2022-03-22",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 66.91218003846163,
+            "annual_return": 19.461303685002008,
+            "max_drawdown": -14.31142534618206,
+            "annual_volatility": 14.414012115577579,
+            "sharpe_ratio": 1.1420348167469534,
+            "calmar_ratio": -1.35984384603549,
+            "rebalance_count": 34,
+            "backtest_days": 726,
+            "data_start_date": "2018-01-24",
+            "data_end_date": "2021-03-09",
+            "requested_start_date": "2018-01-24",
+            "requested_end_date": "2021-03-09",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002,
+              "factor_weights": {
+                "momentum_20d": 400,
+                "momentum_60d": 150,
+                "momentum_strength": 200,
+                "volatility_reward": 50,
+                "r_squared": 30
+              },
+              "style_factors": {
+                "small_cap": 1.0,
+                "growth": 1.0,
+                "mid_cap": 1.0,
+                "large_cap": 1.0,
+                "tech": 1.0,
+                "cyclical": 1.0,
+                "defensive": 1.0,
+                "gov_bond": 1.0,
+                "convertible": 1.0,
+                "commodity": 1.0,
+                "a_share": 1.0,
+                "us_tech": 1.0
+              }
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "window_index": 4,
+        "train_period": {
+          "train_start": "2019-02-13",
+          "train_end": "2022-03-22",
+          "test_start": "2022-03-23",
+          "test_end": "2023-04-04",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 35.85565061538476,
+          "annual_return": 11.222399896370527,
+          "max_drawdown": -15.251929479791604,
+          "annual_volatility": 13.682226201046587,
+          "sharpe_ratio": 0.6009548282239023,
+          "calmar_ratio": -0.7358019791030312,
+          "rebalance_count": 35,
+          "backtest_days": 726,
+          "data_start_date": "2019-02-13",
+          "data_end_date": "2022-03-22",
+          "requested_start_date": "2019-02-13",
+          "requested_end_date": "2022-03-22",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 4.434076230769257,
+          "annual_return": 5.048166526684028,
+          "max_drawdown": -6.692896627258647,
+          "annual_volatility": 8.768561064948335,
+          "sharpe_ratio": 0.23358068804144166,
+          "calmar_ratio": -0.7542573578865678,
+          "rebalance_count": 11,
+          "backtest_days": 222,
+          "data_start_date": "2022-03-23",
+          "data_end_date": "2023-04-04",
+          "requested_start_date": "2022-03-23",
+          "requested_end_date": "2023-04-04",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 35.85565061538476,
+            "annual_return": 11.222399896370527,
+            "max_drawdown": -15.251929479791604,
+            "annual_volatility": 13.682226201046587,
+            "sharpe_ratio": 0.6009548282239023,
+            "calmar_ratio": -0.7358019791030312,
+            "rebalance_count": 35,
+            "backtest_days": 726,
+            "data_start_date": "2019-02-13",
+            "data_end_date": "2022-03-22",
+            "requested_start_date": "2019-02-13",
+            "requested_end_date": "2022-03-22",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002,
+              "factor_weights": {
+                "momentum_20d": 400,
+                "momentum_60d": 150,
+                "momentum_strength": 200,
+                "volatility_reward": 50,
+                "r_squared": 30
+              },
+              "style_factors": {
+                "small_cap": 1.0,
+                "growth": 1.0,
+                "mid_cap": 1.0,
+                "large_cap": 1.0,
+                "tech": 1.0,
+                "cyclical": 1.0,
+                "defensive": 1.0,
+                "gov_bond": 1.0,
+                "convertible": 1.0,
+                "commodity": 1.0,
+                "a_share": 1.0,
+                "us_tech": 1.0
+              }
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "window_index": 5,
+        "train_period": {
+          "train_start": "2020-02-26",
+          "train_end": "2023-04-04",
+          "test_start": "2023-04-06",
+          "test_end": "2024-04-19",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": -11.329738999999906,
+          "annual_return": -4.087910865828615,
+          "max_drawdown": -30.23375450798884,
+          "annual_volatility": 14.017806090809207,
+          "sharpe_ratio": -0.5056362472067446,
+          "calmar_ratio": 0.13521016269244504,
+          "rebalance_count": 37,
+          "backtest_days": 726,
+          "data_start_date": "2020-02-26",
+          "data_end_date": "2023-04-04",
+          "requested_start_date": "2020-02-26",
+          "requested_end_date": "2023-04-04",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 13.167452538461566,
+          "annual_return": 15.075059290606397,
+          "max_drawdown": -4.5859322451882925,
+          "annual_volatility": 7.260095191021941,
+          "sharpe_ratio": 1.6632094997237488,
+          "calmar_ratio": -3.2872398641352873,
+          "rebalance_count": 10,
+          "backtest_days": 222,
+          "data_start_date": "2023-04-06",
+          "data_end_date": "2024-04-19",
+          "requested_start_date": "2023-04-06",
+          "requested_end_date": "2024-04-19",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": -11.329738999999906,
+            "annual_return": -4.087910865828615,
+            "max_drawdown": -30.23375450798884,
+            "annual_volatility": 14.017806090809207,
+            "sharpe_ratio": -0.5056362472067446,
+            "calmar_ratio": 0.13521016269244504,
+            "rebalance_count": 37,
+            "backtest_days": 726,
+            "data_start_date": "2020-02-26",
+            "data_end_date": "2023-04-04",
+            "requested_start_date": "2020-02-26",
+            "requested_end_date": "2023-04-04",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002,
+              "factor_weights": {
+                "momentum_20d": 400,
+                "momentum_60d": 150,
+                "momentum_strength": 200,
+                "volatility_reward": 50,
+                "r_squared": 30
+              },
+              "style_factors": {
+                "small_cap": 1.0,
+                "growth": 1.0,
+                "mid_cap": 1.0,
+                "large_cap": 1.0,
+                "tech": 1.0,
+                "cyclical": 1.0,
+                "defensive": 1.0,
+                "gov_bond": 1.0,
+                "convertible": 1.0,
+                "commodity": 1.0,
+                "a_share": 1.0,
+                "us_tech": 1.0
+              }
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "window_index": 6,
+        "train_period": {
+          "train_start": "2021-03-10",
+          "train_end": "2024-04-19",
+          "test_start": "2024-04-22",
+          "test_end": "2025-05-08",
+          "train_days": 756,
+          "test_days": 252
+        },
+        "best_train": {
+          "total_return": 15.750824115384688,
+          "annual_return": 5.208222867168222,
+          "max_drawdown": -11.7412332641135,
+          "annual_volatility": 8.548481032348535,
+          "sharpe_ratio": 0.2583175723046032,
+          "calmar_ratio": -0.44358397027055907,
+          "rebalance_count": 33,
+          "backtest_days": 726,
+          "data_start_date": "2021-03-10",
+          "data_end_date": "2024-04-19",
+          "requested_start_date": "2021-03-10",
+          "requested_end_date": "2024-04-19",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 24.182193961538488,
+          "annual_return": 27.870407274360364,
+          "max_drawdown": -5.702464149186216,
+          "annual_volatility": 11.474441525503721,
+          "sharpe_ratio": 2.1674612414976395,
+          "calmar_ratio": -4.887432265284417,
+          "rebalance_count": 11,
+          "backtest_days": 222,
+          "data_start_date": "2024-04-22",
+          "data_end_date": "2025-05-08",
+          "requested_start_date": "2024-04-22",
+          "requested_end_date": "2025-05-08",
+          "params": {
+            "initial_capital": 52000,
+            "trigger_deviation": 0.25,
+            "signal_weight": 0.2,
+            "stop_loss_threshold": -0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3,
+            "transaction_cost": 0.0002,
+            "factor_weights": {
+              "momentum_20d": 400,
+              "momentum_60d": 150,
+              "momentum_strength": 200,
+              "volatility_reward": 50,
+              "r_squared": 30
+            },
+            "style_factors": {
+              "small_cap": 1.0,
+              "growth": 1.0,
+              "mid_cap": 1.0,
+              "large_cap": 1.0,
+              "tech": 1.0,
+              "cyclical": 1.0,
+              "defensive": 1.0,
+              "gov_bond": 1.0,
+              "convertible": 1.0,
+              "commodity": 1.0,
+              "a_share": 1.0,
+              "us_tech": 1.0
+            }
+          },
+          "constraints": {
+            "max_single_weight": 0.325,
+            "min_holding": 1000
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 15.750824115384688,
+            "annual_return": 5.208222867168222,
+            "max_drawdown": -11.7412332641135,
+            "annual_volatility": 8.548481032348535,
+            "sharpe_ratio": 0.2583175723046032,
+            "calmar_ratio": -0.44358397027055907,
+            "rebalance_count": 33,
+            "backtest_days": 726,
+            "data_start_date": "2021-03-10",
+            "data_end_date": "2024-04-19",
+            "requested_start_date": "2021-03-10",
+            "requested_end_date": "2024-04-19",
+            "params": {
+              "initial_capital": 52000,
+              "trigger_deviation": 0.25,
+              "signal_weight": 0.2,
+              "stop_loss_threshold": -0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3,
+              "transaction_cost": 0.0002,
+              "factor_weights": {
+                "momentum_20d": 400,
+                "momentum_60d": 150,
+                "momentum_strength": 200,
+                "volatility_reward": 50,
+                "r_squared": 30
+              },
+              "style_factors": {
+                "small_cap": 1.0,
+                "growth": 1.0,
+                "mid_cap": 1.0,
+                "large_cap": 1.0,
+                "tech": 1.0,
+                "cyclical": 1.0,
+                "defensive": 1.0,
+                "gov_bond": 1.0,
+                "convertible": 1.0,
+                "commodity": 1.0,
+                "a_share": 1.0,
+                "us_tech": 1.0
+              }
+            },
+            "constraints": {
+              "max_single_weight": 0.325,
+              "min_holding": 1000
+            },
+            "rank": 1
+          }
+        ]
+      }
+    ]
+  }
+}

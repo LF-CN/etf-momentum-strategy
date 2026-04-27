@@ -1,0 +1,54 @@
+{
+  "name": "stage7b_msw0325_cooldown15_lowdd",
+  "mode": "parameter_grid_scan",
+  "start_date": "2016-01-01",
+  "end_date": "2026-04-14",
+  "base_params": {
+    "initial_capital": 52000,
+    "trigger_deviation": 0.25,
+    "signal_weight": 0.2,
+    "stop_loss_threshold": -0.18,
+    "lookback_period": 30,
+    "cooldown_days": 15,
+    "top_n": 3,
+    "transaction_cost": 0.0002,
+    "factor_weights": {
+      "momentum_20d": 400,
+      "momentum_60d": 150,
+      "momentum_strength": 200,
+      "volatility_reward": 50,
+      "r_squared": 30
+    },
+    "style_factors": {
+      "small_cap": 1.0,
+      "growth": 1.0,
+      "mid_cap": 1.0,
+      "large_cap": 1.0,
+      "tech": 1.0,
+      "cyclical": 1.0,
+      "defensive": 1.0,
+      "gov_bond": 1.0,
+      "convertible": 1.0,
+      "commodity": 1.0,
+      "a_share": 1.0,
+      "us_tech": 1.0
+    }
+  },
+  "base_constraints": {
+    "max_single_weight": 0.325,
+    "min_holding": 1000
+  },
+  "validation": {
+    "train_test": true,
+    "walk_forward": true,
+    "train_ratio": 0.7,
+    "train_days": 756,
+    "test_days": 252,
+    "step_days": 252
+  },
+  "notes": [
+    "Stage7B 低回撤专项回测 preset",
+    "固定 max_single_weight=0.325，只验证 cooldown_days 对回撤与稳健性的影响",
+    "cooldown_days=15"
+  ]
+}

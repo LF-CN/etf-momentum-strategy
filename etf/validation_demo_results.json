@@ -1,0 +1,1467 @@
+{
+  "grid": {
+    "trigger_deviation": [
+      0.15,
+      0.2,
+      0.25
+    ],
+    "lookback_period": [
+      30,
+      45
+    ],
+    "cooldown_days": [
+      10,
+      20
+    ],
+    "top_n": [
+      3
+    ]
+  },
+  "full_sample_top5": [
+    {
+      "total_return": 308.69740850000056,
+      "annual_return": 15.479360741517233,
+      "max_drawdown": -16.47455777735437,
+      "sharpe_ratio": 1.0216036364623042,
+      "calmar_ratio": -0.9395918816585708,
+      "rebalance_count": 164,
+      "backtest_days": 2465,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2016-01-01",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "trigger_deviation": 0.2,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3
+      },
+      "rank": 1
+    },
+    {
+      "total_return": 294.62775930769266,
+      "annual_return": 15.066525429122812,
+      "max_drawdown": -15.314418843651795,
+      "sharpe_ratio": 0.977342440842029,
+      "calmar_ratio": -0.9838130707368148,
+      "rebalance_count": 145,
+      "backtest_days": 2465,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2016-01-01",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "trigger_deviation": 0.25,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3
+      },
+      "rank": 2
+    },
+    {
+      "total_return": 279.13315192307743,
+      "annual_return": 14.596300590618183,
+      "max_drawdown": -15.556356107383488,
+      "sharpe_ratio": 0.9705772280554004,
+      "calmar_ratio": -0.9382853214378633,
+      "rebalance_count": 169,
+      "backtest_days": 2465,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2016-01-01",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "trigger_deviation": 0.15,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3
+      },
+      "rank": 3
+    },
+    {
+      "total_return": 255.02693884615448,
+      "annual_return": 13.91956185218639,
+      "max_drawdown": -16.306339213195773,
+      "sharpe_ratio": 0.8441837018734347,
+      "calmar_ratio": -0.8536288660622304,
+      "rebalance_count": 254,
+      "backtest_days": 2450,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2016-01-01",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "trigger_deviation": 0.2,
+        "lookback_period": 45,
+        "cooldown_days": 10,
+        "top_n": 3
+      },
+      "rank": 4
+    },
+    {
+      "total_return": 240.25685296153904,
+      "annual_return": 13.335841999537767,
+      "max_drawdown": -16.176825819579317,
+      "sharpe_ratio": 0.8380307114263044,
+      "calmar_ratio": -0.8243794022556008,
+      "rebalance_count": 289,
+      "backtest_days": 2465,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2016-01-01",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "trigger_deviation": 0.15,
+        "lookback_period": 30,
+        "cooldown_days": 10,
+        "top_n": 3
+      },
+      "rank": 5
+    }
+  ],
+  "train_test_validation": {
+    "train_period": {
+      "train_start": "2016-01-04",
+      "train_end": "2023-03-09",
+      "test_start": "2023-03-10",
+      "test_end": "2026-04-14",
+      "train_days": 1746,
+      "test_days": 749
+    },
+    "best_train": {
+      "total_return": 96.51631915384652,
+      "annual_return": 10.429857252631347,
+      "max_drawdown": -16.47455777735437,
+      "sharpe_ratio": 0.618145844349991,
+      "calmar_ratio": -0.6330887537975702,
+      "rebalance_count": 115,
+      "backtest_days": 1716,
+      "data_start_date": "2016-01-04",
+      "data_end_date": "2023-03-09",
+      "requested_start_date": "2016-01-04",
+      "requested_end_date": "2023-03-09",
+      "params": {
+        "trigger_deviation": 0.2,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3
+      },
+      "rank": 1
+    },
+    "test_evaluation": {
+      "total_return": 102.22234157692323,
+      "annual_return": 27.9938406460696,
+      "max_drawdown": -9.325506395065258,
+      "sharpe_ratio": 1.9550707113549095,
+      "calmar_ratio": -3.001857428448389,
+      "rebalance_count": 47,
+      "backtest_days": 719,
+      "data_start_date": "2023-03-10",
+      "data_end_date": "2026-04-14",
+      "requested_start_date": "2023-03-10",
+      "requested_end_date": "2026-04-14",
+      "params": {
+        "trigger_deviation": 0.2,
+        "lookback_period": 30,
+        "cooldown_days": 20,
+        "top_n": 3
+      }
+    },
+    "train_top_results": [
+      {
+        "total_return": 96.51631915384652,
+        "annual_return": 10.429857252631347,
+        "max_drawdown": -16.47455777735437,
+        "sharpe_ratio": 0.618145844349991,
+        "calmar_ratio": -0.6330887537975702,
+        "rebalance_count": 115,
+        "backtest_days": 1716,
+        "data_start_date": "2016-01-04",
+        "data_end_date": "2023-03-09",
+        "requested_start_date": "2016-01-04",
+        "requested_end_date": "2023-03-09",
+        "params": {
+          "trigger_deviation": 0.2,
+          "lookback_period": 30,
+          "cooldown_days": 20,
+          "top_n": 3
+        },
+        "rank": 1
+      },
+      {
+        "total_return": 95.27140369230791,
+        "annual_return": 10.32684529895942,
+        "max_drawdown": -15.314418843651795,
+        "sharpe_ratio": 0.6052159861452099,
+        "calmar_ratio": -0.6743217228409651,
+        "rebalance_count": 105,
+        "backtest_days": 1716,
+        "data_start_date": "2016-01-04",
+        "data_end_date": "2023-03-09",
+        "requested_start_date": "2016-01-04",
+        "requested_end_date": "2023-03-09",
+        "params": {
+          "trigger_deviation": 0.25,
+          "lookback_period": 30,
+          "cooldown_days": 20,
+          "top_n": 3
+        },
+        "rank": 2
+      },
+      {
+        "total_return": 86.14191419230796,
+        "annual_return": 9.553805094081103,
+        "max_drawdown": -15.556356107383488,
+        "sharpe_ratio": 0.5678847692184593,
+        "calmar_ratio": -0.6141415784090077,
+        "rebalance_count": 117,
+        "backtest_days": 1716,
+        "data_start_date": "2016-01-04",
+        "data_end_date": "2023-03-09",
+        "requested_start_date": "2016-01-04",
+        "requested_end_date": "2023-03-09",
+        "params": {
+          "trigger_deviation": 0.15,
+          "lookback_period": 30,
+          "cooldown_days": 20,
+          "top_n": 3
+        },
+        "rank": 3
+      },
+      {
+        "total_return": 82.08274865384648,
+        "annual_return": 9.19966157019605,
+        "max_drawdown": -16.176825819579317,
+        "sharpe_ratio": 0.5241043967516115,
+        "calmar_ratio": -0.5686938632337508,
+        "rebalance_count": 205,
+        "backtest_days": 1716,
+        "data_start_date": "2016-01-04",
+        "data_end_date": "2023-03-09",
+        "requested_start_date": "2016-01-04",
+        "requested_end_date": "2023-03-09",
+        "params": {
+          "trigger_deviation": 0.15,
+          "lookback_period": 30,
+          "cooldown_days": 10,
+          "top_n": 3
+        },
+        "rank": 4
+      },
+      {
+        "total_return": 81.45499230769254,
+        "annual_return": 9.144292598453996,
+        "max_drawdown": -20.76255471385478,
+        "sharpe_ratio": 0.5163555836896008,
+        "calmar_ratio": -0.4404223239615134,
+        "rebalance_count": 170,
+        "backtest_days": 1716,
+        "data_start_date": "2016-01-04",
+        "data_end_date": "2023-03-09",
+        "requested_start_date": "2016-01-04",
+        "requested_end_date": "2023-03-09",
+        "params": {
+          "trigger_deviation": 0.25,
+          "lookback_period": 30,
+          "cooldown_days": 10,
+          "top_n": 3
+        },
+        "rank": 5
+      }
+    ]
+  },
+  "walk_forward_validation": {
+    "summary": {
+      "window_count": 12,
+      "avg_test_sharpe": 0.7672,
+      "avg_test_annual_return": 13.5353,
+      "avg_test_max_drawdown": -9.738,
+      "best_params_frequency": [
+        {
+          "params": {
+            "cooldown_days": 20,
+            "lookback_period": 30,
+            "top_n": 3,
+            "trigger_deviation": 0.15
+          },
+          "count": 3
+        },
+        {
+          "params": {
+            "cooldown_days": 20,
+            "lookback_period": 30,
+            "top_n": 3,
+            "trigger_deviation": 0.25
+          },
+          "count": 3
+        },
+        {
+          "params": {
+            "cooldown_days": 10,
+            "lookback_period": 30,
+            "top_n": 3,
+            "trigger_deviation": 0.15
+          },
+          "count": 2
+        },
+        {
+          "params": {
+            "cooldown_days": 20,
+            "lookback_period": 45,
+            "top_n": 3,
+            "trigger_deviation": 0.25
+          },
+          "count": 2
+        },
+        {
+          "params": {
+            "cooldown_days": 10,
+            "lookback_period": 30,
+            "top_n": 3,
+            "trigger_deviation": 0.2
+          },
+          "count": 1
+        },
+        {
+          "params": {
+            "cooldown_days": 10,
+            "lookback_period": 45,
+            "top_n": 3,
+            "trigger_deviation": 0.15
+          },
+          "count": 1
+        }
+      ]
+    },
+    "windows": [
+      {
+        "window_index": 1,
+        "train_period": {
+          "start": "2016-01-04",
+          "end": "2019-02-12",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2019-02-13",
+          "end": "2020-02-25",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 33.249007884615466,
+          "annual_return": 10.483714521498122,
+          "max_drawdown": -9.73549890391709,
+          "sharpe_ratio": 0.8326263129612159,
+          "calmar_ratio": -1.076854368221436,
+          "rebalance_count": 50,
+          "backtest_days": 726,
+          "data_start_date": "2016-01-04",
+          "data_end_date": "2019-02-12",
+          "requested_start_date": "2016-01-04",
+          "requested_end_date": "2019-02-12",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 17.91647269230774,
+          "annual_return": 20.572067036755826,
+          "max_drawdown": -7.6053958058492075,
+          "sharpe_ratio": 1.4736335471775268,
+          "calmar_ratio": -2.7049304943385226,
+          "rebalance_count": 16,
+          "backtest_days": 222,
+          "data_start_date": "2019-02-13",
+          "data_end_date": "2020-02-25",
+          "requested_start_date": "2019-02-13",
+          "requested_end_date": "2020-02-25",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 33.249007884615466,
+            "annual_return": 10.483714521498122,
+            "max_drawdown": -9.73549890391709,
+            "sharpe_ratio": 0.8326263129612159,
+            "calmar_ratio": -1.076854368221436,
+            "rebalance_count": 50,
+            "backtest_days": 726,
+            "data_start_date": "2016-01-04",
+            "data_end_date": "2019-02-12",
+            "requested_start_date": "2016-01-04",
+            "requested_end_date": "2019-02-12",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 29.594736500000064,
+            "annual_return": 9.422425881310748,
+            "max_drawdown": -9.733439640272653,
+            "sharpe_ratio": 0.698435068276112,
+            "calmar_ratio": -0.9680468806037417,
+            "rebalance_count": 49,
+            "backtest_days": 726,
+            "data_start_date": "2016-01-04",
+            "data_end_date": "2019-02-12",
+            "requested_start_date": "2016-01-04",
+            "requested_end_date": "2019-02-12",
+            "params": {
+              "trigger_deviation": 0.2,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 2,
+        "train_period": {
+          "start": "2016-07-11",
+          "end": "2019-08-14",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2019-08-15",
+          "end": "2020-08-27",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 66.05273061538468,
+          "annual_return": 19.24743119000718,
+          "max_drawdown": -9.745019266989795,
+          "sharpe_ratio": 1.4784472131967188,
+          "calmar_ratio": -1.9751044777516022,
+          "rebalance_count": 41,
+          "backtest_days": 726,
+          "data_start_date": "2016-07-11",
+          "data_end_date": "2019-08-14",
+          "requested_start_date": "2016-07-11",
+          "requested_end_date": "2019-08-14",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 24.098658653846215,
+          "annual_return": 27.795553577636856,
+          "max_drawdown": -15.509084452811805,
+          "sharpe_ratio": 1.4469862889592433,
+          "calmar_ratio": -1.7922111174394635,
+          "rebalance_count": 16,
+          "backtest_days": 222,
+          "data_start_date": "2019-08-15",
+          "data_end_date": "2020-08-27",
+          "requested_start_date": "2019-08-15",
+          "requested_end_date": "2020-08-27",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 66.05273061538468,
+            "annual_return": 19.24743119000718,
+            "max_drawdown": -9.745019266989795,
+            "sharpe_ratio": 1.4784472131967188,
+            "calmar_ratio": -1.9751044777516022,
+            "rebalance_count": 41,
+            "backtest_days": 726,
+            "data_start_date": "2016-07-11",
+            "data_end_date": "2019-08-14",
+            "requested_start_date": "2016-07-11",
+            "requested_end_date": "2019-08-14",
+            "params": {
+              "trigger_deviation": 0.25,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 54.33101880769233,
+            "annual_return": 16.255501910684988,
+            "max_drawdown": -9.78545974402481,
+            "sharpe_ratio": 1.2493988550874617,
+            "calmar_ratio": -1.6611893907806337,
+            "rebalance_count": 47,
+            "backtest_days": 726,
+            "data_start_date": "2016-07-11",
+            "data_end_date": "2019-08-14",
+            "requested_start_date": "2016-07-11",
+            "requested_end_date": "2019-08-14",
+            "params": {
+              "trigger_deviation": 0.2,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 3,
+        "train_period": {
+          "start": "2017-01-13",
+          "end": "2020-02-25",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2020-02-26",
+          "end": "2021-03-09",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 51.21311892307696,
+          "annual_return": 15.434822972916006,
+          "max_drawdown": -9.715658277687792,
+          "sharpe_ratio": 1.1554502500046342,
+          "calmar_ratio": -1.5886543692425241,
+          "rebalance_count": 49,
+          "backtest_days": 726,
+          "data_start_date": "2017-01-13",
+          "data_end_date": "2020-02-25",
+          "requested_start_date": "2017-01-13",
+          "requested_end_date": "2020-02-25",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 9.970512230769257,
+          "annual_return": 11.392030188032564,
+          "max_drawdown": -19.425275742667765,
+          "sharpe_ratio": 0.4143822413431509,
+          "calmar_ratio": -0.5864539756833353,
+          "rebalance_count": 16,
+          "backtest_days": 222,
+          "data_start_date": "2020-02-26",
+          "data_end_date": "2021-03-09",
+          "requested_start_date": "2020-02-26",
+          "requested_end_date": "2021-03-09",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 51.21311892307696,
+            "annual_return": 15.434822972916006,
+            "max_drawdown": -9.715658277687792,
+            "sharpe_ratio": 1.1554502500046342,
+            "calmar_ratio": -1.5886543692425241,
+            "rebalance_count": 49,
+            "backtest_days": 726,
+            "data_start_date": "2017-01-13",
+            "data_end_date": "2020-02-25",
+            "requested_start_date": "2017-01-13",
+            "requested_end_date": "2020-02-25",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 50.12581507692306,
+            "annual_return": 15.146031411732785,
+            "max_drawdown": -10.211027254013946,
+            "sharpe_ratio": 1.1403278367240894,
+            "calmar_ratio": -1.4833014382347178,
+            "rebalance_count": 45,
+            "backtest_days": 726,
+            "data_start_date": "2017-01-13",
+            "data_end_date": "2020-02-25",
+            "requested_start_date": "2017-01-13",
+            "requested_end_date": "2020-02-25",
+            "params": {
+              "trigger_deviation": 0.2,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 4,
+        "train_period": {
+          "start": "2017-07-24",
+          "end": "2020-08-27",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2020-08-28",
+          "end": "2021-09-08",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 79.76107403846162,
+          "annual_return": 22.576370026100932,
+          "max_drawdown": -11.066412015845467,
+          "sharpe_ratio": 1.5074733581606259,
+          "calmar_ratio": -2.040080379600444,
+          "rebalance_count": 74,
+          "backtest_days": 726,
+          "data_start_date": "2017-07-24",
+          "data_end_date": "2020-08-27",
+          "requested_start_date": "2017-07-24",
+          "requested_end_date": "2020-08-27",
+          "params": {
+            "trigger_deviation": 0.2,
+            "lookback_period": 30,
+            "cooldown_days": 10,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 2.988413461538464,
+          "annual_return": 3.3990445472797948,
+          "max_drawdown": -10.838181280536716,
+          "sharpe_ratio": 0.036195104278169944,
+          "calmar_ratio": -0.31361761344440914,
+          "rebalance_count": 29,
+          "backtest_days": 222,
+          "data_start_date": "2020-08-28",
+          "data_end_date": "2021-09-08",
+          "requested_start_date": "2020-08-28",
+          "requested_end_date": "2021-09-08",
+          "params": {
+            "trigger_deviation": 0.2,
+            "lookback_period": 30,
+            "cooldown_days": 10,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 79.76107403846162,
+            "annual_return": 22.576370026100932,
+            "max_drawdown": -11.066412015845467,
+            "sharpe_ratio": 1.5074733581606259,
+            "calmar_ratio": -2.040080379600444,
+            "rebalance_count": 74,
+            "backtest_days": 726,
+            "data_start_date": "2017-07-24",
+            "data_end_date": "2020-08-27",
+            "requested_start_date": "2017-07-24",
+            "requested_end_date": "2020-08-27",
+            "params": {
+              "trigger_deviation": 0.2,
+              "lookback_period": 30,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 73.47238196153853,
+            "annual_return": 21.07058226143923,
+            "max_drawdown": -11.433681269459681,
+            "sharpe_ratio": 1.373633054939177,
+            "calmar_ratio": -1.8428519883373449,
+            "rebalance_count": 80,
+            "backtest_days": 726,
+            "data_start_date": "2017-07-24",
+            "data_end_date": "2020-08-27",
+            "requested_start_date": "2017-07-24",
+            "requested_end_date": "2020-08-27",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 30,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 5,
+        "train_period": {
+          "start": "2018-01-24",
+          "end": "2021-03-09",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2021-03-10",
+          "end": "2022-03-22",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 53.02727276923092,
+          "annual_return": 15.913665104283957,
+          "max_drawdown": -15.967696708942716,
+          "sharpe_ratio": 0.8675311864052029,
+          "calmar_ratio": -0.9966161929523312,
+          "rebalance_count": 82,
+          "backtest_days": 726,
+          "data_start_date": "2018-01-24",
+          "data_end_date": "2021-03-09",
+          "requested_start_date": "2018-01-24",
+          "requested_end_date": "2021-03-09",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 10,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": -2.1419368846153475,
+          "annual_return": -2.427847029303698,
+          "max_drawdown": -9.543134581653826,
+          "sharpe_ratio": -0.573292916764129,
+          "calmar_ratio": 0.2544077114841392,
+          "rebalance_count": 29,
+          "backtest_days": 222,
+          "data_start_date": "2021-03-10",
+          "data_end_date": "2022-03-22",
+          "requested_start_date": "2021-03-10",
+          "requested_end_date": "2022-03-22",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 10,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 53.02727276923092,
+            "annual_return": 15.913665104283957,
+            "max_drawdown": -15.967696708942716,
+            "sharpe_ratio": 0.8675311864052029,
+            "calmar_ratio": -0.9966161929523312,
+            "rebalance_count": 82,
+            "backtest_days": 726,
+            "data_start_date": "2018-01-24",
+            "data_end_date": "2021-03-09",
+            "requested_start_date": "2018-01-24",
+            "requested_end_date": "2021-03-09",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 30,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 50.72343019230776,
+            "annual_return": 15.304928372630133,
+            "max_drawdown": -15.490427727937792,
+            "sharpe_ratio": 0.830092888441135,
+            "calmar_ratio": -0.9880249042463107,
+            "rebalance_count": 48,
+            "backtest_days": 726,
+            "data_start_date": "2018-01-24",
+            "data_end_date": "2021-03-09",
+            "requested_start_date": "2018-01-24",
+            "requested_end_date": "2021-03-09",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 6,
+        "train_period": {
+          "start": "2018-08-02",
+          "end": "2021-09-08",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2021-09-09",
+          "end": "2022-09-23",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 68.47508353846163,
+          "annual_return": 20.30706370112645,
+          "max_drawdown": -17.23439780213234,
+          "sharpe_ratio": 1.1061990517223785,
+          "calmar_ratio": -1.1782868153718689,
+          "rebalance_count": 41,
+          "backtest_days": 711,
+          "data_start_date": "2018-08-02",
+          "data_end_date": "2021-09-08",
+          "requested_start_date": "2018-08-02",
+          "requested_end_date": "2021-09-08",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 45,
+            "cooldown_days": 20,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": -8.554662884615393,
+          "annual_return": -10.315286046854554,
+          "max_drawdown": -9.126206936039667,
+          "sharpe_ratio": -1.2552974819821159,
+          "calmar_ratio": 1.1302928061075603,
+          "rebalance_count": 13,
+          "backtest_days": 207,
+          "data_start_date": "2021-09-09",
+          "data_end_date": "2022-09-23",
+          "requested_start_date": "2021-09-09",
+          "requested_end_date": "2022-09-23",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 45,
+            "cooldown_days": 20,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 68.47508353846163,
+            "annual_return": 20.30706370112645,
+            "max_drawdown": -17.23439780213234,
+            "sharpe_ratio": 1.1061990517223785,
+            "calmar_ratio": -1.1782868153718689,
+            "rebalance_count": 41,
+            "backtest_days": 711,
+            "data_start_date": "2018-08-02",
+            "data_end_date": "2021-09-08",
+            "requested_start_date": "2018-08-02",
+            "requested_end_date": "2021-09-08",
+            "params": {
+              "trigger_deviation": 0.25,
+              "lookback_period": 45,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 64.33168638461544,
+            "annual_return": 18.81696969502784,
+            "max_drawdown": -15.888521510069985,
+            "sharpe_ratio": 1.0768746637104258,
+            "calmar_ratio": -1.1843121893438502,
+            "rebalance_count": 88,
+            "backtest_days": 726,
+            "data_start_date": "2018-08-02",
+            "data_end_date": "2021-09-08",
+            "requested_start_date": "2018-08-02",
+            "requested_end_date": "2021-09-08",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 30,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 7,
+        "train_period": {
+          "start": "2019-02-13",
+          "end": "2022-03-22",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2022-03-23",
+          "end": "2023-04-04",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 35.30367515384623,
+          "annual_return": 11.065336430449047,
+          "max_drawdown": -15.561594685555125,
+          "sharpe_ratio": 0.5631930690197088,
+          "calmar_ratio": -0.7110669988545789,
+          "rebalance_count": 50,
+          "backtest_days": 726,
+          "data_start_date": "2019-02-13",
+          "data_end_date": "2022-03-22",
+          "requested_start_date": "2019-02-13",
+          "requested_end_date": "2022-03-22",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 3.157784884615422,
+          "annual_return": 3.59209200811883,
+          "max_drawdown": -9.396889438930028,
+          "sharpe_ratio": 0.05896039551050274,
+          "calmar_ratio": -0.3822639429210781,
+          "rebalance_count": 16,
+          "backtest_days": 222,
+          "data_start_date": "2022-03-23",
+          "data_end_date": "2023-04-04",
+          "requested_start_date": "2022-03-23",
+          "requested_end_date": "2023-04-04",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 35.30367515384623,
+            "annual_return": 11.065336430449047,
+            "max_drawdown": -15.561594685555125,
+            "sharpe_ratio": 0.5631930690197088,
+            "calmar_ratio": -0.7110669988545789,
+            "rebalance_count": 50,
+            "backtest_days": 726,
+            "data_start_date": "2019-02-13",
+            "data_end_date": "2022-03-22",
+            "requested_start_date": "2019-02-13",
+            "requested_end_date": "2022-03-22",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 33.995197230769335,
+            "annual_return": 10.691333090087763,
+            "max_drawdown": -15.499098126945063,
+            "sharpe_ratio": 0.5355777330422914,
+            "calmar_ratio": -0.6898035616344,
+            "rebalance_count": 50,
+            "backtest_days": 726,
+            "data_start_date": "2019-02-13",
+            "data_end_date": "2022-03-22",
+            "requested_start_date": "2019-02-13",
+            "requested_end_date": "2022-03-22",
+            "params": {
+              "trigger_deviation": 0.2,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 8,
+        "train_period": {
+          "start": "2019-08-15",
+          "end": "2022-09-23",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2022-09-26",
+          "end": "2023-10-13",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 20.200258846153908,
+          "annual_return": 6.738452550825635,
+          "max_drawdown": -16.750139093063712,
+          "sharpe_ratio": 0.2539911038590234,
+          "calmar_ratio": -0.40229233401506803,
+          "rebalance_count": 43,
+          "backtest_days": 711,
+          "data_start_date": "2019-08-15",
+          "data_end_date": "2022-09-23",
+          "requested_start_date": "2019-08-15",
+          "requested_end_date": "2022-09-23",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 45,
+            "cooldown_days": 20,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 5.439509423076916,
+          "annual_return": 6.660621678002876,
+          "max_drawdown": -6.240511720751696,
+          "sharpe_ratio": 0.43731001279373233,
+          "calmar_ratio": -1.0673197929993752,
+          "rebalance_count": 12,
+          "backtest_days": 207,
+          "data_start_date": "2022-09-26",
+          "data_end_date": "2023-10-13",
+          "requested_start_date": "2022-09-26",
+          "requested_end_date": "2023-10-13",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 45,
+            "cooldown_days": 20,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 20.200258846153908,
+            "annual_return": 6.738452550825635,
+            "max_drawdown": -16.750139093063712,
+            "sharpe_ratio": 0.2539911038590234,
+            "calmar_ratio": -0.40229233401506803,
+            "rebalance_count": 43,
+            "backtest_days": 711,
+            "data_start_date": "2019-08-15",
+            "data_end_date": "2022-09-23",
+            "requested_start_date": "2019-08-15",
+            "requested_end_date": "2022-09-23",
+            "params": {
+              "trigger_deviation": 0.25,
+              "lookback_period": 45,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 18.695775692307738,
+            "annual_return": 6.129723661888153,
+            "max_drawdown": -15.880098161823456,
+            "sharpe_ratio": 0.22450079335697543,
+            "calmar_ratio": -0.38600036343757077,
+            "rebalance_count": 90,
+            "backtest_days": 726,
+            "data_start_date": "2019-08-15",
+            "data_end_date": "2022-09-23",
+            "requested_start_date": "2019-08-15",
+            "requested_end_date": "2022-09-23",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 30,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 9,
+        "train_period": {
+          "start": "2020-02-26",
+          "end": "2023-04-04",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2023-04-06",
+          "end": "2024-04-19",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 23.24875765384622,
+          "annual_return": 7.525457345990971,
+          "max_drawdown": -15.893105027294311,
+          "sharpe_ratio": 0.34959918449890504,
+          "calmar_ratio": -0.47350453753794436,
+          "rebalance_count": 89,
+          "backtest_days": 726,
+          "data_start_date": "2020-02-26",
+          "data_end_date": "2023-04-04",
+          "requested_start_date": "2020-02-26",
+          "requested_end_date": "2023-04-04",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 10,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 10.514316269230806,
+          "annual_return": 12.017509201826226,
+          "max_drawdown": -6.646289852018398,
+          "sharpe_ratio": 1.0713245126502131,
+          "calmar_ratio": -1.808153040177243,
+          "rebalance_count": 28,
+          "backtest_days": 222,
+          "data_start_date": "2023-04-06",
+          "data_end_date": "2024-04-19",
+          "requested_start_date": "2023-04-06",
+          "requested_end_date": "2024-04-19",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 30,
+            "cooldown_days": 10,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 23.24875765384622,
+            "annual_return": 7.525457345990971,
+            "max_drawdown": -15.893105027294311,
+            "sharpe_ratio": 0.34959918449890504,
+            "calmar_ratio": -0.47350453753794436,
+            "rebalance_count": 89,
+            "backtest_days": 726,
+            "data_start_date": "2020-02-26",
+            "data_end_date": "2023-04-04",
+            "requested_start_date": "2020-02-26",
+            "requested_end_date": "2023-04-04",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 30,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 22.528947653846277,
+            "annual_return": 7.46683958573553,
+            "max_drawdown": -15.28385730902836,
+            "sharpe_ratio": 0.33533681175657365,
+            "calmar_ratio": -0.48854418323604587,
+            "rebalance_count": 44,
+            "backtest_days": 711,
+            "data_start_date": "2020-02-26",
+            "data_end_date": "2023-04-04",
+            "requested_start_date": "2020-02-26",
+            "requested_end_date": "2023-04-04",
+            "params": {
+              "trigger_deviation": 0.25,
+              "lookback_period": 45,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 10,
+        "train_period": {
+          "start": "2020-08-28",
+          "end": "2023-10-13",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2023-10-16",
+          "end": "2024-10-29",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 13.17393361538468,
+          "annual_return": 4.389250406921952,
+          "max_drawdown": -12.683415762350347,
+          "sharpe_ratio": 0.15112240655471046,
+          "calmar_ratio": -0.34606217198612005,
+          "rebalance_count": 47,
+          "backtest_days": 726,
+          "data_start_date": "2020-08-28",
+          "data_end_date": "2023-10-13",
+          "requested_start_date": "2020-08-28",
+          "requested_end_date": "2023-10-13",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 13.081604192307683,
+          "annual_return": 14.991249593633803,
+          "max_drawdown": -9.11948351607091,
+          "sharpe_ratio": 0.868013679911197,
+          "calmar_ratio": -1.6438704634111474,
+          "rebalance_count": 15,
+          "backtest_days": 222,
+          "data_start_date": "2023-10-16",
+          "data_end_date": "2024-10-29",
+          "requested_start_date": "2023-10-16",
+          "requested_end_date": "2024-10-29",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 13.17393361538468,
+            "annual_return": 4.389250406921952,
+            "max_drawdown": -12.683415762350347,
+            "sharpe_ratio": 0.15112240655471046,
+            "calmar_ratio": -0.34606217198612005,
+            "rebalance_count": 47,
+            "backtest_days": 726,
+            "data_start_date": "2020-08-28",
+            "data_end_date": "2023-10-13",
+            "requested_start_date": "2020-08-28",
+            "requested_end_date": "2023-10-13",
+            "params": {
+              "trigger_deviation": 0.25,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 10.955142346153913,
+            "annual_return": 3.7532291982677712,
+            "max_drawdown": -11.797324976350893,
+            "sharpe_ratio": 0.07381722097273974,
+            "calmar_ratio": -0.31814239294005675,
+            "rebalance_count": 86,
+            "backtest_days": 711,
+            "data_start_date": "2020-08-28",
+            "data_end_date": "2023-10-13",
+            "requested_start_date": "2020-08-28",
+            "requested_end_date": "2023-10-13",
+            "params": {
+              "trigger_deviation": 0.2,
+              "lookback_period": 45,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 11,
+        "train_period": {
+          "start": "2021-03-10",
+          "end": "2024-04-19",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2024-04-22",
+          "end": "2025-05-08",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 25.025514000000104,
+          "annual_return": 8.242484479150036,
+          "max_drawdown": -11.382713740865137,
+          "sharpe_ratio": 0.5488870204615143,
+          "calmar_ratio": -0.7241229698642646,
+          "rebalance_count": 83,
+          "backtest_days": 711,
+          "data_start_date": "2021-03-10",
+          "data_end_date": "2024-04-19",
+          "requested_start_date": "2021-03-10",
+          "requested_end_date": "2024-04-19",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 45,
+            "cooldown_days": 10,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 18.987783538461578,
+          "annual_return": 23.57082165951776,
+          "max_drawdown": -9.089263523181504,
+          "sharpe_ratio": 1.1545792952954785,
+          "calmar_ratio": -2.593259794855997,
+          "rebalance_count": 23,
+          "backtest_days": 207,
+          "data_start_date": "2024-04-22",
+          "data_end_date": "2025-05-08",
+          "requested_start_date": "2024-04-22",
+          "requested_end_date": "2025-05-08",
+          "params": {
+            "trigger_deviation": 0.15,
+            "lookback_period": 45,
+            "cooldown_days": 10,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 25.025514000000104,
+            "annual_return": 8.242484479150036,
+            "max_drawdown": -11.382713740865137,
+            "sharpe_ratio": 0.5488870204615143,
+            "calmar_ratio": -0.7241229698642646,
+            "rebalance_count": 83,
+            "backtest_days": 711,
+            "data_start_date": "2021-03-10",
+            "data_end_date": "2024-04-19",
+            "requested_start_date": "2021-03-10",
+            "requested_end_date": "2024-04-19",
+            "params": {
+              "trigger_deviation": 0.15,
+              "lookback_period": 45,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 24.272658076923182,
+            "annual_return": 8.011023336347822,
+            "max_drawdown": -11.76123925457446,
+            "sharpe_ratio": 0.5422135342652651,
+            "calmar_ratio": -0.6811376899106941,
+            "rebalance_count": 82,
+            "backtest_days": 711,
+            "data_start_date": "2021-03-10",
+            "data_end_date": "2024-04-19",
+            "requested_start_date": "2021-03-10",
+            "requested_end_date": "2024-04-19",
+            "params": {
+              "trigger_deviation": 0.2,
+              "lookback_period": 45,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "window_index": 12,
+        "train_period": {
+          "start": "2021-09-09",
+          "end": "2024-10-29",
+          "days": 756
+        },
+        "test_period": {
+          "start": "2024-10-30",
+          "end": "2025-11-11",
+          "days": 252
+        },
+        "best_train": {
+          "total_return": 27.591121923077,
+          "annual_return": 8.830001758584348,
+          "max_drawdown": -9.519269460236735,
+          "sharpe_ratio": 0.5568302455511347,
+          "calmar_ratio": -0.9275923741279151,
+          "rebalance_count": 48,
+          "backtest_days": 726,
+          "data_start_date": "2021-09-09",
+          "data_end_date": "2024-10-29",
+          "requested_start_date": "2021-09-09",
+          "requested_end_date": "2024-10-29",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          },
+          "rank": 1
+        },
+        "test_result": {
+          "total_return": 43.917549923076926,
+          "annual_return": 51.17517527347004,
+          "max_drawdown": -4.316861327513504,
+          "sharpe_ratio": 4.073907473022312,
+          "calmar_ratio": -11.854718368483416,
+          "rebalance_count": 10,
+          "backtest_days": 222,
+          "data_start_date": "2024-10-30",
+          "data_end_date": "2025-11-11",
+          "requested_start_date": "2024-10-30",
+          "requested_end_date": "2025-11-11",
+          "params": {
+            "trigger_deviation": 0.25,
+            "lookback_period": 30,
+            "cooldown_days": 20,
+            "top_n": 3
+          }
+        },
+        "train_top_results": [
+          {
+            "total_return": 27.591121923077,
+            "annual_return": 8.830001758584348,
+            "max_drawdown": -9.519269460236735,
+            "sharpe_ratio": 0.5568302455511347,
+            "calmar_ratio": -0.9275923741279151,
+            "rebalance_count": 48,
+            "backtest_days": 726,
+            "data_start_date": "2021-09-09",
+            "data_end_date": "2024-10-29",
+            "requested_start_date": "2021-09-09",
+            "requested_end_date": "2024-10-29",
+            "params": {
+              "trigger_deviation": 0.25,
+              "lookback_period": 30,
+              "cooldown_days": 20,
+              "top_n": 3
+            },
+            "rank": 1
+          },
+          {
+            "total_return": 24.53481142307703,
+            "annual_return": 7.913588397761129,
+            "max_drawdown": -10.809269594535161,
+            "sharpe_ratio": 0.4788062986400524,
+            "calmar_ratio": -0.7321112984139094,
+            "rebalance_count": 80,
+            "backtest_days": 726,
+            "data_start_date": "2021-09-09",
+            "data_end_date": "2024-10-29",
+            "requested_start_date": "2021-09-09",
+            "requested_end_date": "2024-10-29",
+            "params": {
+              "trigger_deviation": 0.2,
+              "lookback_period": 30,
+              "cooldown_days": 10,
+              "top_n": 3
+            },
+            "rank": 2
+          }
+        ]
+      }
+    ]
+  }
+}

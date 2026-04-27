@@ -1,0 +1,28 @@
+{
+  "name": "baseline",
+  "mode": "parameter_grid_scan",
+  "start_date": "2016-01-01",
+  "end_date": "2026-04-14",
+  "base_params": {
+    "initial_capital": 52000,
+    "trigger_deviation": 0.2,
+    "signal_weight": 0.2,
+    "stop_loss_threshold": -0.18,
+    "lookback_period": 30,
+    "cooldown_days": 20,
+    "top_n": 3,
+    "transaction_cost": 0.0002
+  },
+  "base_constraints": {
+    "max_single_weight": 0.35,
+    "min_holding": 1000
+  },
+  "validation": {
+    "train_test": true,
+    "walk_forward": true,
+    "train_ratio": 0.7,
+    "train_days": 756,
+    "test_days": 252,
+    "step_days": 252
+  }
+}

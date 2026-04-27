@@ -1,0 +1,19 @@
+{
+  "package_root": "/opt/data/scripts/etf/windows_backtest_package",
+  "core_files": [
+    "momentum_backtest.py",
+    "run_preset.py"
+  ],
+  "data_files": [
+    "159928_kline.csv",
+    "159941_kline.csv",
+    "510500_kline.csv",
+    "511010_kline.csv",
+    "518880_kline.csv"
+  ],
+  "preset_files": [
+    "baseline.json",
+    "edge_param_scan.json",
+    "max_single_weight_3way.json"
+  ]
+}
