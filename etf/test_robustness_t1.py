@@ -15,10 +15,7 @@ BASE = dict(
     top_n=3, transaction_cost=0.0002,
     factor_weights={'momentum_20d': 400, 'momentum_60d': 150, 'momentum_strength': 200,
                     'volatility_reward': 50, 'r_squared': 30},
-    style_factors={k: 1.0 for k in ['small_cap','growth','mid_cap','large_cap','tech',
-                                      'cyclical','defensive','gov_bond','convertible',
-                                      'commodity','a_share','us_tech']},
-)
+    )
 START, END = '2016-01-01', '2026-04-27'
 
 # === Step 1: 基线（T+0，当日收盘价成交）===
