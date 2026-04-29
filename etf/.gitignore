@@ -1,13 +1,14 @@
+# Trash archive
+_trash_*/
+
 # Data & DB
 data/*.db
-data/*.db.bak_*
 data/*.json
 !data/.gitkeep
 
-# Backups
-backup_*.tar.gz
-backups/
-archive/
+# Backups / generated zips
+windows_backtest_package.zip
+windows_backtest_package_v2.zip
 
 # Python
 __pycache__/
@@ -16,19 +17,7 @@ __pycache__/
 .venv/
 
 # Logs
-logs/
 *.log
-
-# Temp results
-baseline_optimized_current.*
-baseline_0325.*
-f*_results.json
-f*_scan_results.json
-lookback_period_*.json.txt
-lookback_period_*.log
-max_single_weight_*.json.txt
-edge_param_optimization.*
-windows_backtest_package/results/
 
 # OS
 .DS_Store
