@@ -35,7 +35,9 @@ class DailyMonitoringBLM:
                  lookback_period=60,
                  cooldown_days=10,
                  top_n=3,
-                 transaction_cost=0.0003):
+                 transaction_cost=0.0003,
+                 factor_weights=None,
+                 style_factors=None):
         
         self.initial_capital = initial_capital
         self.trigger_deviation = trigger_deviation
@@ -45,6 +47,31 @@ class DailyMonitoringBLM:
         self.cooldown_days = cooldown_days
         self.top_n = top_n
         self.transaction_cost = transaction_cost
+        
+        # 因子权重配置（可通过参数覆盖）
+        self.factor_weights = factor_weights if factor_weights is not None else {
+            'momentum_20d': 400,
+            'momentum_60d': 150,
+            'momentum_strength': 200,
+            'volatility_reward': 50,
+            'r_squared': 30
+        }
+        
+        # 风格因子配置（可通过参数覆盖）
+        self.style_factors = style_factors if style_factors is not None else {
+            'small_cap': 1.25,
+            'growth': 1.20,
+            'mid_cap': 1.10,
+            'large_cap': 1.00,
+            'tech': 1.15,
+            'cyclical': 1.10,
+            'defensive': 0.70,
+            'gov_bond': 0.60,
+            'convertible': 0.85,
+            'commodity': 0.95,
+            'a_share': 1.00,
+            'us_tech': 1.00
+        }
         
         self.etf_pool = {
             '510500': {'name': '中证500ETF', 'base_weight': 0.25, 'style': 'a_share'},
@@ -62,6 +89,27 @@ class DailyMonitoringBLM:
         # 记录变量
         self.rebalance_history = []
         self.signals_log = []
+        self._record_signals = True
+
+    def _reset_run_state(self):
+        """重置单次回测的运行态，避免多次回测串状态。"""
+        self.rebalance_history = []
+        self.signals_log = []
+
+    def _slice_prices_for_backtest(self, prices, start_date, end_date):
+        """裁剪并标准化回测价格数据。"""
+        if prices is None or len(prices) == 0:
+            return pd.DataFrame()
+
+        prepared = prices.copy()
+        prepared.index = pd.to_datetime(prepared.index)
+        prepared = prepared.sort_index()
+
+        start_ts = pd.to_datetime(start_date)
+        end_ts = pd.to_datetime(end_date)
+        prepared = prepared[(prepared.index >= start_ts) & (prepared.index <= end_ts)]
+
+        return prepared
 
     def _load_csv_data(self, csv_path):
         """读取单个ETF CSV数据并标准化字段"""
@@ -213,108 +261,125 @@ class DailyMonitoringBLM:
         
         return pd.DataFrame(price_data)
     
+    def precompute_all_factors(self, prices):
+        """预计算所有因子值（一次性计算，避免逐日循环中的重复计算）"""
+        lookback = self.lookback_period
+        fw = self.factor_weights
+        
+        # 1. 短期动量：20日收益率
+        self._mom_20d = prices.pct_change(20)
+        
+        # 2. 长期动量：60日收益率
+        self._mom_60d = prices.pct_change(60)
+        
+        # 3. 动量强度：日化近期动量 - 历史平均日收益
+        daily_returns = prices.pct_change()
+        rolling_mean_ret = daily_returns.rolling(lookback, min_periods=5).mean()
+        self._mom_strength = (self._mom_20d / 20 - rolling_mean_ret)
+        self._mom_strength = self._mom_strength.where(~rolling_mean_ret.isna(), 0)
+        
+        # 4. 波动率评分（低波动奖励）
+        volatility = daily_returns.rolling(lookback, min_periods=5).std()
+        vol_score = (0.03 - volatility) / 0.03
+        self._vol_score = vol_score.clip(0, 1)
+        
+        # 5. 趋势稳定性 R²（向量化，一次完成所有ETFs）
+        n_days = len(prices)
+        window = lookback
+        x = np.arange(window, dtype=float)
+        x_mean = x.mean()
+        x_std = x.std(ddof=0)
+        x_dev = x - x_mean
+        
+        self._r_squared = prices.copy() * np.nan
+        
+        for code in prices.columns:
+            values = prices[code].values
+            result = np.full(n_days, np.nan)
+            for i in range(window, n_days):
+                y = values[i-window:i]
+                if np.isnan(y).any() or y[-1] <= 0:
+                    continue
+                y_mean = y.mean()
+                y_std = y.std(ddof=0)
+                if y_std == 0:
+                    continue
+                cov = np.sum((y - y_mean) * x_dev)
+                corr = cov / (window * x_std * y_std)
+                result[i] = corr * corr
+            self._r_squared[code] = result
+        
+        # 缓存因子权重避免每次查找
+        self._fw_cache = {
+            '20d': fw.get('momentum_20d', 400),
+            '60d': fw.get('momentum_60d', 150),
+            'strength': fw.get('momentum_strength', 200),
+            'vol': fw.get('volatility_reward', 50),
+            'r2': fw.get('r_squared', 30),
+        }
+        
+        # 预计算强信号所需数据（避免逐日循环）
+        daily_returns = prices.pct_change()
+        self._ret_1d = daily_returns
+        self._ret_3d = prices.pct_change(3)
+        self._ret_5d = prices.pct_change(5)
+        self._ret_10d = prices.pct_change(10)
+        
+        # 预计算连续涨跌天数（向量化，每只ETF一次）
+        self._consecutive_up = daily_returns.copy() * 0
+        self._consecutive_down = daily_returns.copy() * 0
+        
+        for code in prices.columns:
+            s = daily_returns[code]
+            # 连续上涨
+            pos = (s > 0).astype(int)
+            pos_groups = (pos != pos.shift(1)).cumsum()
+            cu = pos.groupby(pos_groups).cumcount() + 1
+            self._consecutive_up[code] = cu * pos
+            # 连续下跌
+            neg = (s < 0).astype(int)
+            neg_groups = (neg != neg.shift(1)).cumsum()
+            cd = neg.groupby(neg_groups).cumcount() + 1
+            self._consecutive_down[code] = cd * neg
+    
     def calculate_momentum_score(self, prices, date):
         """
-        计算动量得分（多因子综合）
-        
-        考虑因素：
-        1. 短期动量（20日）
-        2. 长期动量（60日）
-        3. 动量强度（近期vs历史）
-        4. 波动率（低波动奖励）
-        5. 趋势稳定性
-        
-        Args:
-            prices: 价格DataFrame
-            date: 计算日期
-        
-        Returns:
-            Series: 各ETF的动量得分（0-100）
+        计算动量得分（多因子综合）- 使用预计算因子
         """
-        end_idx = prices.index.get_loc(date)
-        start_idx = max(0, end_idx - self.lookback_period)
-        period_prices = prices.iloc[start_idx:end_idx+1]
+        try:
+            date_loc = prices.index.get_loc(date)
+        except:
+            return pd.Series(50, index=prices.columns)
         
         momentum_scores = {}
+        fw = self._fw_cache
         
         for code in prices.columns:
             try:
-                returns = period_prices[code].pct_change().dropna()
+                mom_20d = self._mom_20d.iloc[date_loc].get(code, 0)
+                mom_60d = self._mom_60d.iloc[date_loc].get(code, 0)
+                mom_str = self._mom_strength.iloc[date_loc].get(code, 0)
+                vol_s = self._vol_score.iloc[date_loc].get(code, 0)
+                r2 = self._r_squared.iloc[date_loc].get(code, 0)
                 
-                if len(returns) > 5:
-                    # 1. 短期动量（20日收益率）
-                    if len(period_prices[code]) >= 20:
-                        momentum_20d = (period_prices[code].iloc[-1] / period_prices[code].iloc[-20] - 1)
-                    else:
-                        momentum_20d = (period_prices[code].iloc[-1] / period_prices[code].iloc[0] - 1)
-                    
-                    # 2. 长期动量（60日收益率）
-                    if len(period_prices[code]) >= 60:
-                        momentum_60d = (period_prices[code].iloc[-1] / period_prices[code].iloc[-60] - 1)
-                    else:
-                        momentum_60d = (period_prices[code].iloc[-1] / period_prices[code].iloc[0] - 1)
-                    
-                    # 3. 动量强度（近期动量vs历史平均）
-                    if len(returns) > 10:
-                        hist_mean = returns.mean()
-                        recent_mom = momentum_20d / 20  # 日化
-                        momentum_strength = (recent_mom - hist_mean) if hist_mean != 0 else 0
-                    else:
-                        momentum_strength = 0
-                    
-                    # 4. 波动率惩罚（波动率越低得分越高）
-                    volatility = returns.std()
-                    if volatility > 0:
-                        vol_score = (0.03 - volatility) / 0.03  # 以3%为基准
-                        vol_score = np.clip(vol_score, 0, 1)
-                    else:
-                        vol_score = 0.5
-                    
-                    # 5. 趋势稳定性
-                    if len(period_prices[code]) > 10:
-                        # 计算R²（回归拟合度）
-                        x = np.arange(len(period_prices[code]))
-                        y = period_prices[code].values
-                        slope, intercept = np.polyfit(x, y, 1)
-                        y_pred = slope * x + intercept
-                        ss_res = np.sum((y - y_pred) ** 2)
-                        ss_tot = np.sum((y - y.mean()) ** 2)
-                        r_squared = 1 - (ss_res / ss_tot) if ss_tot > 0 else 0
-                    else:
-                        r_squared = 0
-                    
-                    # 综合得分计算
-                    base_score = (
-                        momentum_20d * 400 +      # 短期动量权重高
-                        momentum_60d * 150 +      # 长期动量权重适中
-                        momentum_strength * 200 +  # 动量强度
-                        vol_score * 50 +          # 波动率奖励
-                        r_squared * 30            # 趋势稳定性
-                    )
-                    
-                    # 根据ETF风格调整权重
-                    etf_style = self.etf_pool[code]['style']
-                    style_factor = {
-                        'small_cap': 1.25,      # 小盘股给予更高动量权重
-                        'growth': 1.20,         # 成长股
-                        'mid_cap': 1.10,
-                        'large_cap': 1.00,
-                        'tech': 1.15,           # 科技股
-                        'cyclical': 1.10,       # 周期股
-                        'defensive': 0.70,      # 防御股降低动量权重
-                        'gov_bond': 0.60,       # 国债
-                        'convertible': 0.85,    # 可转债
-                        'commodity': 0.95       # 商品
-                    }.get(etf_style, 1.0)
-                    
-                    momentum_score = base_score * style_factor
-                    
-                    # 限制在0-100区间
-                    momentum_scores[code] = np.clip(momentum_score, 0, 100)
-                    
-                else:
-                    momentum_scores[code] = 50  # 数据不足给中性分
-                    
+                if pd.isna(mom_20d): mom_20d = 0
+                if pd.isna(mom_60d): mom_60d = 0
+                if pd.isna(mom_str): mom_str = 0
+                if pd.isna(vol_s): vol_s = 0.5
+                if pd.isna(r2): r2 = 0
+                
+                base_score = (
+                    mom_20d * fw['20d'] +
+                    mom_60d * fw['60d'] +
+                    mom_str * fw['strength'] +
+                    vol_s * fw['vol'] +
+                    r2 * fw['r2']
+                )
+                
+                etf_style = self.etf_pool[code]['style']
+                style_factor = self.style_factors.get(etf_style, 1.0)
+                momentum_scores[code] = np.clip(base_score * style_factor, 0, 100)
+                
             except Exception as e:
                 momentum_scores[code] = 50
                 print(f"计算{code}动量得分时出错: {e}")
@@ -352,11 +417,12 @@ class DailyMonitoringBLM:
         momentum_rank = momentum_scores.rank(pct=True)
         
         # 记录信号日志（只记录有效的ETF）
-        self.signals_log.append({
-            'date': date,
-            'momentum_scores': {k: v for k, v in momentum_scores.to_dict().items() if pd.notna(v)},
-            'momentum_ranks': {k: v for k, v in momentum_rank.to_dict().items() if pd.notna(v)}
-        })
+        if self._record_signals:
+            self.signals_log.append({
+                'date': date,
+                'momentum_scores': {k: v for k, v in momentum_scores.to_dict().items() if pd.notna(v)},
+                'momentum_ranks': {k: v for k, v in momentum_rank.to_dict().items() if pd.notna(v)}
+            })
         
         # 初始化目标权重
         target_weights = {}
@@ -509,22 +575,10 @@ class DailyMonitoringBLM:
     
     def check_strong_signal(self, prices, date):
         """
-        检查强信号（趋势翻转/加速/反转）
-        
-        检测内容：
-        1. 连续上涨/下跌天数
-        2. 单日大幅波动
-        3. 突破/跌破关键技术位
-        
-        Args:
-            prices: 价格DataFrame
-            date: 检查日期
-        
-        Returns:
-            dict: {'signal': True/False, 'detail': {...}}
+        检查强信号（趋势翻转/加速/反转）- 使用预计算数据
         """
         try:
-            end_idx = prices.index.get_loc(date)
+            date_loc = prices.index.get_loc(date)
         except:
             return {'signal': False, 'detail': {}}
         
@@ -532,58 +586,45 @@ class DailyMonitoringBLM:
         
         for code in prices.columns:
             try:
-                recent_prices = prices[code].iloc[max(0, end_idx-14):end_idx+1]
+                ret_5d = self._ret_5d.iloc[date_loc].get(code, 0)
+                ret_10d = self._ret_10d.iloc[date_loc].get(code, 0)
+                cu = self._consecutive_up.iloc[date_loc].get(code, 0)
+                cd = self._consecutive_down.iloc[date_loc].get(code, 0)
                 
-                if len(recent_prices) >= 5:
-                    # 计算1日、3日、5日、10日收益率
-                    periods = [1, 3, 5, 10]
-                    period_returns = {}
-                    for p in periods:
-                        if len(recent_prices) >= p:
-                            period_returns[f'{p}d'] = (recent_prices.iloc[-1] / recent_prices.iloc[-p] - 1)
-                    
-                    # 检测连续涨跌
-                    returns = recent_prices.pct_change().dropna()
-                    consecutive_up = 0
-                    consecutive_down = 0
-                    
-                    for r in reversed(returns):
-                        if r > 0:
-                            consecutive_up += 1
-                            consecutive_down = 0
-                        elif r < 0:
-                            consecutive_down += 1
-                            consecutive_up = 0
-                        else:
-                            break
-                    
-                    # 强信号判断
-                    strong_up = (
-                        consecutive_up >= 10 or                 # 连续10日上涨
-                        period_returns.get('5d', 0) > 0.08 or    # 5日涨超8%
-                        period_returns.get('10d', 0) > 0.12      # 10日涨超12%
-                    )
-                    
-                    strong_down = (
-                        consecutive_down >= 10 or               # 连续10日下跌
-                        period_returns.get('5d', 0) < -0.08 or  # 5日跌超8%
-                        period_returns.get('10d', 0) < -0.12    # 10日跌超12%
-                    )
-                    
-                    detail[code] = {
-                        'consecutive_up': consecutive_up,
-                        'consecutive_down': consecutive_down,
-                        'period_returns': period_returns,
-                        'strong_up': strong_up,
-                        'strong_down': strong_down
-                    }
+                if pd.isna(ret_5d): ret_5d = 0
+                if pd.isna(ret_10d): ret_10d = 0
+                if pd.isna(cu): cu = 0
+                if pd.isna(cd): cd = 0
+                
+                strong_up = (
+                    cu >= 10 or
+                    ret_5d > 0.08 or
+                    ret_10d > 0.12
+                )
+                
+                strong_down = (
+                    cd >= 10 or
+                    ret_5d < -0.08 or
+                    ret_10d < -0.12
+                )
+                
+                detail[code] = {
+                    'consecutive_up': int(cu),
+                    'consecutive_down': int(cd),
+                    'period_returns': {
+                        '1d': 0 if pd.isna(self._ret_1d.iloc[date_loc].get(code)) else self._ret_1d.iloc[date_loc].get(code),
+                        '5d': ret_5d,
+                        '10d': ret_10d
+                    },
+                    'strong_up': strong_up,
+                    'strong_down': strong_down
+                }
             except:
                 detail[code] = {
                     'consecutive_up': 0, 'consecutive_down': 0,
                     'period_returns': {}, 'strong_up': False, 'strong_down': False
                 }
         
-        # 整体强信号：任一资产出现强信号
         strong_signal = any([
             d.get('strong_up', False) or d.get('strong_down', False)
             for d in detail.values()
@@ -889,7 +930,7 @@ class DailyMonitoringBLM:
             'trades': trades
         }
     
-    def backtest(self, start_date, end_date, verbose=True):
+    def backtest(self, start_date, end_date, verbose=True, prices=None, return_details=True, record_signals=True):
         """
         回测策略
         
@@ -897,10 +938,16 @@ class DailyMonitoringBLM:
             start_date: 回测开始日期 'YYYY-MM-DD'
             end_date: 回测结束日期 'YYYY-MM-DD'
             verbose: 是否打印详细信息
+            prices: 可选，预加载价格数据。传入后不再重复读取历史数据
+            return_details: 是否返回交易明细、净值序列、调仓历史等大对象
+            record_signals: 是否记录逐日信号日志（参数优化时建议关闭）
         
         Returns:
             dict: 回测结果
         """
+        self._reset_run_state()
+        self._record_signals = record_signals
+
         if verbose:
             print("=" * 70)
             print(" " * 15 + "每日监测+触发调仓BLM策略（10只ETF版）")
@@ -915,7 +962,10 @@ class DailyMonitoringBLM:
             print("=" * 70)
         
         # 获取数据
-        prices = self.fetch_data(start_date, end_date)
+        if prices is None:
+            prices = self.fetch_data(start_date, end_date)
+        else:
+            prices = self._slice_prices_for_backtest(prices, start_date, end_date)
         
         if prices.empty or len(prices) < self.lookback_period:
             if verbose:
@@ -937,6 +987,9 @@ class DailyMonitoringBLM:
         
         # 移除NaN
         prices = prices.fillna(0)
+        
+        # 预计算所有因子（一次性，避免逐日循环重复计算）
+        self.precompute_all_factors(prices)
         
         # 找到所有ETF都有数据的日期范围
         valid_dates = prices.dropna(axis=1, how='any').index
@@ -1020,29 +1073,27 @@ class DailyMonitoringBLM:
             # 获取当前价格
             current_prices = prices.loc[date]
             
-            # 计算当前组合价值
-            position_value = 0.0
-            for code in current_positions.keys():
-                shares = current_positions[code]
-                price = current_prices.get(code, 0)
-                if pd.isna(price):
-                    price = 0
-                price = float(price) if not pd.isna(price) else 0
-                position_value += shares * price
-            current_value = cash + position_value
-            
-            # 计算当前持仓权重
-            if current_value > 0:
-                current_weights_dict = {}
-                for code in current_positions.keys():
-                    price = current_prices.get(code, 0)
-                    if pd.isna(price):
-                        price = 0
-                    weight = (current_positions[code] * price) / current_value
-                    current_weights_dict[code] = weight
-                current_weights = pd.Series(current_weights_dict)
-            else:
+            # 计算当前组合价值（向量化）
+            if not current_positions:
+                position_value = 0.0
                 current_weights = pd.Series({code: 0 for code in self.etf_pool.keys()})
+            else:
+                codes_with_pos = [c for c in current_positions.keys() if current_positions[c] > 0]
+                if codes_with_pos:
+                    pos_shares = np.array([current_positions[c] for c in codes_with_pos])
+                    pos_prices = np.array([current_prices.get(c, 0) if not pd.isna(current_prices.get(c)) else 0 for c in codes_with_pos])
+                    pos_values = pos_shares * pos_prices
+                    position_value = float(pos_values.sum())
+                    current_value = cash + position_value
+                    if current_value > 0:
+                        pos_weights = pd.Series(pos_values / current_value, index=codes_with_pos)
+                        current_weights = pos_weights.reindex(self.etf_pool.keys(), fill_value=0)
+                    else:
+                        current_weights = pd.Series(0.0, index=self.etf_pool.keys())
+                else:
+                    position_value = 0.0
+                    current_weights = pd.Series({code: 0 for code in self.etf_pool.keys()})
+            current_value = cash + position_value
             
             # 记录净值
             nav = current_value / self.initial_capital
@@ -1164,26 +1215,39 @@ class DailyMonitoringBLM:
         results = self._calculate_performance_metrics(nav_df, len(trading_days))
         
         # 添加额外信息
+        final_positions = self._get_final_positions(current_positions, final_prices)
+
         results.update({
             'initial_capital': self.initial_capital,
             'final_value': final_value,
             'total_return': (final_nav - 1) * 100,
             'rebalance_count': rebalance_count,
-            'trades': pd.DataFrame(trades),
-            'nav_history': nav_df,
-            'rebalance_history': self.rebalance_history,
-            'final_positions': self._get_final_positions(current_positions, final_prices),
             'backtest_days': len(trading_days),
             'requested_start_date': start_date,
             'requested_end_date': end_date,
             'data_start_date': prices.index.min().strftime('%Y-%m-%d'),
             'data_end_date': prices.index.max().strftime('%Y-%m-%d')
         })
+
+        if return_details:
+            results.update({
+                'trades': pd.DataFrame(trades),
+                'nav_history': nav_df,
+                'rebalance_history': list(self.rebalance_history),
+                'final_positions': final_positions,
+            })
         
         # 生成报告
         if verbose:
-            self.generate_report(results)
-            self.plot_results(results)
+            report_results = results if return_details else {
+                **results,
+                'trades': pd.DataFrame(trades),
+                'nav_history': nav_df,
+                'rebalance_history': list(self.rebalance_history),
+                'final_positions': final_positions,
+            }
+            self.generate_report(report_results)
+            self.plot_results(report_results)
         
         return results
     

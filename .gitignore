@@ -1,0 +1,50 @@
+# Data files
+*.csv
+*.csv.gz
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Plots
+*.png
+*.pdf
+
+# AkShare temp files
+AkShare/nul
+AkShare/temp_result.json
+AkShare/策略执行/backtest_data*.json
+AkShare/策略执行/backtest_report.html
+AkShare/策略执行/init_database.py
+AkShare/策略执行/data_format.txt
+AkShare/策略执行/策略报告.md
+
+# Config / secrets
+.feishu_config
+_keys/
+
+# Other temp
+nul
