@@ -51,7 +51,6 @@ class DailyMonitoringBLM:
         self.factor_weights = factor_weights if factor_weights is not None else {
             'momentum_20d': 425,
             'momentum_60d': 175,
-            'momentum_strength': 200,
             'volatility_reward': 75,
             'r_squared': 30
         }
@@ -256,13 +255,8 @@ class DailyMonitoringBLM:
         # 2. 长期动量：60日收益率
         self._mom_60d = prices.pct_change(60)
         
-        # 3. 动量强度：日化近期动量 - 历史平均日收益
+        # 3. 波动率评分（低波动奖励）
         daily_returns = prices.pct_change()
-        rolling_mean_ret = daily_returns.rolling(lookback, min_periods=5).mean()
-        self._mom_strength = (self._mom_20d / 20 - rolling_mean_ret)
-        self._mom_strength = self._mom_strength.where(~rolling_mean_ret.isna(), 0)
-        
-        # 4. 波动率评分（低波动奖励）
         volatility = daily_returns.rolling(lookback, min_periods=5).std()
         vol_score = (0.03 - volatility) / 0.03
         self._vol_score = vol_score.clip(0, 1)
@@ -297,7 +291,6 @@ class DailyMonitoringBLM:
         self._fw_cache = {
             '20d': fw.get('momentum_20d', 400),
             '60d': fw.get('momentum_60d', 150),
-            'strength': fw.get('momentum_strength', 200),
             'vol': fw.get('volatility_reward', 50),
             'r2': fw.get('r_squared', 30),
         }
@@ -342,20 +335,17 @@ class DailyMonitoringBLM:
             try:
                 mom_20d = self._mom_20d.iloc[date_loc].get(code, 0)
                 mom_60d = self._mom_60d.iloc[date_loc].get(code, 0)
-                mom_str = self._mom_strength.iloc[date_loc].get(code, 0)
                 vol_s = self._vol_score.iloc[date_loc].get(code, 0)
                 r2 = self._r_squared.iloc[date_loc].get(code, 0)
                 
                 if pd.isna(mom_20d): mom_20d = 0
                 if pd.isna(mom_60d): mom_60d = 0
-                if pd.isna(mom_str): mom_str = 0
                 if pd.isna(vol_s): vol_s = 0.5
                 if pd.isna(r2): r2 = 0
                 
                 base_score = (
                     mom_20d * fw['20d'] +
                     mom_60d * fw['60d'] +
-                    mom_str * fw['strength'] +
                     vol_s * fw['vol'] +
                     r2 * fw['r2']
                 )

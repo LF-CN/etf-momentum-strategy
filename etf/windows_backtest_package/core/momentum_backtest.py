@@ -63,7 +63,6 @@ class DailyMonitoringBLM:
         self.factor_weights = {
             'momentum_20d': 425,
             'momentum_60d': 175,
-            'momentum_strength': 200,
             'volatility_reward': 75,
             'r_squared': 30,
         }
@@ -287,14 +286,6 @@ class DailyMonitoringBLM:
                     else:
                         momentum_60d = (period_prices[code].iloc[-1] / period_prices[code].iloc[0] - 1)
                     
-                    # 3. 动量强度（近期动量vs历史平均）
-                    if len(returns) > 10:
-                        hist_mean = returns.mean()
-                        recent_mom = momentum_20d / 20  # 日化
-                        momentum_strength = (recent_mom - hist_mean) if hist_mean != 0 else 0
-                    else:
-                        momentum_strength = 0
-                    
                     # 4. 波动率惩罚（波动率越低得分越高）
                     volatility = returns.std()
                     if volatility > 0:
@@ -321,7 +312,6 @@ class DailyMonitoringBLM:
                     base_score = (
                         momentum_20d * fw.get('momentum_20d', 0) +
                         momentum_60d * fw.get('momentum_60d', 0) +
-                        momentum_strength * fw.get('momentum_strength', 0) +
                         vol_score * fw.get('volatility_reward', 0) +
                         r_squared * fw.get('r_squared', 0)
                     )
@@ -377,14 +367,6 @@ class DailyMonitoringBLM:
                 else:
                     momentum_60d = w[-1] / w[0] - 1.0
                 
-                # 3. 动量强度
-                if len(rets) > 10:
-                    hist_mean = rets.mean()
-                    recent_mom = momentum_20d / 20.0
-                    momentum_strength = (recent_mom - hist_mean) if hist_mean != 0 else 0.0
-                else:
-                    momentum_strength = 0.0
-                
                 # 4. 波动率
                 volatility = float(rets.std(ddof=1))
                 if volatility > 0:
@@ -407,7 +389,6 @@ class DailyMonitoringBLM:
                 base_score = (
                     momentum_20d * fw.get('momentum_20d', 0) +
                     momentum_60d * fw.get('momentum_60d', 0) +
-                    momentum_strength * fw.get('momentum_strength', 0) +
                     vol_score * fw.get('volatility_reward', 0) +
                     r_squared * fw.get('r_squared', 0)
                 )
