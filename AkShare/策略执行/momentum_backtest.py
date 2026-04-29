@@ -50,28 +50,15 @@ class DailyMonitoringBLM:
         
         # 因子权重配置（可通过参数覆盖）
         self.factor_weights = factor_weights if factor_weights is not None else {
-            'momentum_20d': 400,
-            'momentum_60d': 150,
+            'momentum_20d': 425,
+            'momentum_60d': 175,
             'momentum_strength': 200,
-            'volatility_reward': 50,
+            'volatility_reward': 75,
             'r_squared': 30
         }
         
         # 风格因子配置（可通过参数覆盖）
-        self.style_factors = style_factors if style_factors is not None else {
-            'small_cap': 1.25,
-            'growth': 1.20,
-            'mid_cap': 1.10,
-            'large_cap': 1.00,
-            'tech': 1.15,
-            'cyclical': 1.10,
-            'defensive': 0.70,
-            'gov_bond': 0.60,
-            'convertible': 0.85,
-            'commodity': 0.95,
-            'a_share': 1.00,
-            'us_tech': 1.00
-        }
+        self.style_factors = style_factors if style_factors is not None else {}
         
         self.etf_pool = {
             '510500': {'name': '中证500ETF', 'base_weight': 0.25, 'style': 'a_share'},

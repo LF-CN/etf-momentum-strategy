@@ -62,29 +62,16 @@ class DailyMonitoringBLM:
         }
 
         self.factor_weights = {
-            'momentum_20d': 400,
-            'momentum_60d': 150,
+            'momentum_20d': 425,
+            'momentum_60d': 175,
             'momentum_strength': 200,
-            'volatility_reward': 50,
+            'volatility_reward': 75,
             'r_squared': 30,
         }
         if factor_weights is not None:
             self.factor_weights = dict(factor_weights)
 
-        self.style_factors = {
-            'small_cap': 1.25,
-            'growth': 1.20,
-            'mid_cap': 1.10,
-            'large_cap': 1.00,
-            'tech': 1.15,
-            'cyclical': 1.10,
-            'defensive': 0.70,
-            'gov_bond': 0.60,
-            'convertible': 0.85,
-            'commodity': 0.95,
-            'a_share': 1.00,
-            'us_tech': 1.00,
-        }
+        self.style_factors = {}
         if style_factors is not None:
             self.style_factors = dict(style_factors)
 
