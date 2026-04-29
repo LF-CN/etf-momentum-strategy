@@ -148,7 +148,6 @@ def main():
         top_n=STRATEGY_PARAMS['top_n'],
         transaction_cost=STRATEGY_PARAMS['transaction_cost'],
         factor_weights=STRATEGY_PARAMS['factor_weights'],
-        style_factors=STRATEGY_PARAMS['style_factors'],
     )
     strategy.constraints = {
         'max_single_weight': RISK_PARAMS['max_single_weight'],

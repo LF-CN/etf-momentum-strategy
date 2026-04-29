@@ -36,8 +36,7 @@ class DailyMonitoringBLM:
                  cooldown_days=10,
                  top_n=3,
                  transaction_cost=0.0003,
-                 factor_weights=None,
-                 style_factors=None):
+                 factor_weights=None):
         
         self.initial_capital = initial_capital
         self.trigger_deviation = trigger_deviation
@@ -70,10 +69,6 @@ class DailyMonitoringBLM:
         }
         if factor_weights is not None:
             self.factor_weights = dict(factor_weights)
-
-        self.style_factors = {}
-        if style_factors is not None:
-            self.style_factors = dict(style_factors)
 
         # 记录变量
         self.rebalance_history = []
@@ -331,11 +326,7 @@ class DailyMonitoringBLM:
                         r_squared * fw.get('r_squared', 0)
                     )
                     
-                    # 根据ETF风格调整权重
-                    etf_style = self.etf_pool[code]['style']
-                    style_factor = self.style_factors.get(etf_style, 1.0)
-                    
-                    momentum_score = base_score * style_factor
+                    momentum_score = base_score
                     
                     # 限制在0-100区间
                     momentum_scores[code] = np.clip(momentum_score, 0, 100)
@@ -364,7 +355,6 @@ class DailyMonitoringBLM:
         
         for code in codes:
             p = p_arrays[code]
-            style = self.style_factors.get(self.etf_pool[code]['style'], 1.0)
             
             for i in range(lookback, n_dates):
                 start = i - lookback
@@ -421,7 +411,7 @@ class DailyMonitoringBLM:
                     vol_score * fw.get('volatility_reward', 0) +
                     r_squared * fw.get('r_squared', 0)
                 )
-                result[code][i] = float(np.clip(base_score * style, 0.0, 100.0))
+                result[code][i] = float(np.clip(base_score, 0.0, 100.0))
         
         return result
     

@@ -36,8 +36,7 @@ class DailyMonitoringBLM:
                  cooldown_days=10,
                  top_n=3,
                  transaction_cost=0.0003,
-                 factor_weights=None,
-                 style_factors=None):
+                 factor_weights=None):
         
         self.initial_capital = initial_capital
         self.trigger_deviation = trigger_deviation
@@ -57,9 +56,7 @@ class DailyMonitoringBLM:
             'r_squared': 30
         }
         
-        # 风格因子配置（可通过参数覆盖）
-        self.style_factors = style_factors if style_factors is not None else {}
-        
+        # 记录变量
         self.etf_pool = {
             '510500': {'name': '中证500ETF', 'base_weight': 0.25, 'style': 'a_share'},
             '159941': {'name': '纳指ETF', 'base_weight': 0.25, 'style': 'us_tech'},
@@ -363,9 +360,7 @@ class DailyMonitoringBLM:
                     r2 * fw['r2']
                 )
                 
-                etf_style = self.etf_pool[code]['style']
-                style_factor = self.style_factors.get(etf_style, 1.0)
-                momentum_scores[code] = np.clip(base_score * style_factor, 0, 100)
+                momentum_scores[code] = np.clip(base_score, 0, 100)
                 
             except Exception as e:
                 momentum_scores[code] = 50
